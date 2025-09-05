@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Narendra Pandey - Professional Portfolio</title>
+  <link rel="shortcut icon" href="github/GitHub-Mark-Light-64px.png" type="image/x-icon" />
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/43e5b1ec09.js" crossorigin="anonymous"></script>
+  
+  <!-- GSAP for Premium Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+  
+  <!-- Enhanced Custom Styles -->
+  <style>
+    /*   ENHANCED THEME VARIABLES  */
+    :root {
+      --primary-color: #f48fb1;
+      --secondary-color: #81d4fa;
+      --highlight-color: #f7c873;
+      --glow-color: rgba(244, 143, 177, 0.6);
+      --bg-dark: #0b0b0c;
+      --bg-light: #121212;
+      --bg-card: #151515;
+      --border-color: #333;
+      --text-color: #e2e2e2;
+      --text-muted: #ccc;
+      --accent: #f7c873;
+      --font-main: 'Inter', sans-serif;
+      --font-alt: 'Cormorant Garamond', serif;
+      --font-sans: 'Lato', sans-serif;
+      
+      /* Enhanced Animation Variables */
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+      --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+      --ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      
+      /* Premium Shadows */
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+      --shadow-glow: 0 0 30px var(--highlight-color);
+      --shadow-glow-lg: 0 0 50px var(--highlight-color);
+    }
+
+    /*   ENHANCED GLOBAL STYLES  */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-color);
+      font-family: var(--font-main);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Premium Background Effects */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 50%, rgba(244, 143, 177, 0.1) 0%, transparent 50%), 
+                  radial-gradient(circle at 80% 20%, rgba(129, 212, 250, 0.1) 0%, transparent 50%), 
+                  radial-gradient(circle at 40% 80%, rgba(247, 200, 115, 0.1) 0%, transparent 50%);
+      opacity: 0.6;
+      z-index: -2;
+      animation: meshFloat 20s ease-in-out infinite;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="rgba(255,255,255,0.02)"/><circle cx="25" cy="25" r="0.3" fill="rgba(255,255,255,0.01)"/><circle cx="75" cy="75" r="0.4" fill="rgba(255,255,255,0.015)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.4;
+      z-index: -1;
+    }
+
+    @keyframes meshFloat {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -30px) rotate(1deg); }
+      66% { transform: translate(-20px, 20px) rotate(-1deg); }
+    }
+
+    /* Enhanced Typography */
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--accent);
+      font-family: var(--font-alt);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+    }
+
+    p {
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.3s var(--ease-out-quart);
+    }
+
+    a:hover {
+      color: #e5b45f;
+      transform: translateY(-2px);
+    }
+
+    /* Enhanced Loading Screen */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      transition: all 0.8s var(--ease-out-expo);
+    }
+
+    .loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.1);
+    }
+
+    .loading-animation {
+      width: 60px;
+      height: 60px;
+      border: 3px solid var(--border-color);
+      border-top: 3px solid var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 2rem;
+    }
+
+    .loading-text {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 1s var(--ease-out-quart) 0.5s forwards;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Enhanced Navbar */
+    .navbar-custom {
+      background: rgba(18, 18, 18, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.3s var(--ease-out-quart);
+    }
+
+    .navbar-custom.scrolled {
+      background: rgba(18, 18, 18, 0.98);
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar-brand {
+      font-family: var(--font-alt);
+      color: var(--accent);
+      font-size: 1.5rem;
+      font-weight: 700;
+      transition: all 0.3s var(--ease-out-quart);
+    }
+
+    .navbar-brand:hover {
+      color: var(--accent);
+      transform: scale(1.05);
+    }
+
+    .nav-link {
+      color: var(--text-color);
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s var(--ease-out-quart);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(247, 200, 115, 0.2), transparent);
+      transition: left 0.6s var(--ease-out-expo);
+    }
+
+    .nav-link:hover::before {
+      left: 100%;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent);
+      background: rgba(247, 200, 115, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Enhanced Home Section */
+    .section-home {
+      position: relative;
+      height: 100vh;
+      background: var(--bg-dark);
+      color: var(--text-color);
+      background-image: url("../images/banner.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .section-home .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(2px);
+    }
+
+    .overlay-wrap {
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .overlay-wrap span {
+      font-size: 1rem;
+      letter-spacing: 3px;
+      color: var(--accent);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .overlay-wrap h1 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      margin: 1rem 0;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--primary-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .overlay-wrap h4 {
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    /* Enhanced About Section */
+    .section-about {
+      padding: 6rem 2rem;
+      background: var(--bg-light);
+    }
+
+    .section-about-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-desc-content {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+
+    .about-desc-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .about-desc-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .about-desc-content hr {
+      background: var(--accent);
+      height: 2px;
+      border: none;
+      margin: 2rem 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1s var(--ease-out-expo);
+    }
+
+    .about-desc-social {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .about-desc-social i {
+      font-size: 1.5rem;
+      color: var(--accent);
+      transition: all 0.3s var(--ease-out-back);
+      display: inline-block;
+    }
+
+    .about-desc-social i:hover {
+      color: #e5b45f;
+      transform: translateY(-3px) scale(1.2);
+    }
+
+    .img-thumbnail {
+      border-radius: 1rem;
+      opacity: 0;
+      transform: translateX(50px) scale(0.9);
+      transition: all 1s var(--ease-out-expo);
+    }
+
+    /* Enhanced Services Section */
+    .section-services {
+      padding: 6rem 2rem;
+      background: var(--bg-dark);
+    }
+
+    .shape-box {
+      position: relative;
+      width: 100%;
+      max-width: 350px;
+      height: 450px;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.5s var(--ease-out-expo);
+      opacity: 0;
+      transform: translateY(50px) scale(0.9);
+    }
+
+    .shape-box:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: var(--shadow-glow-lg);
+    }
+
+    .shape-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease-out-expo);
+    }
+
+    .shape-box:hover img {
+      transform: scale(1.1);
+    }
+
+    .shape-box figcaption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.9));
+      color: var(--text-color);
+      padding: 2rem;
+      transform: translateY(100%);
+      transition: transform 0.5s var(--ease-out-expo);
+    }
+
+    .shape-box:hover figcaption {
+      transform: translateY(0);
+    }
+
+    .card-no {
+      font-size: 2.5rem;
+      color: var(--accent);
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s var(--ease-out-quart) 0.2s;
+    }
+
+    .shape-box:hover .card-no {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-main-title {
+      text-transform: uppercase;
+      font-weight: 700;
+      margin: 1rem 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s var(--ease-out-quart) 0.3s;
+    }
+
+    .shape-box:hover .card-main-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-content {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s var(--ease-out-quart) 0.4s;
+    }
+
+    .shape-box:hover .card-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .read-more-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #111;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s var(--ease-out-back);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .shape-box:hover .read-more-btn {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.5s;
+    }
+
+    .read-more-btn:hover {
+      background: #e5b45f;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Enhanced Experience Section */
+    .section-resume {
+      padding: 6rem 2rem;
+      background: var(--bg-light);
+      position: relative;
+    }
+
+    .experience-timeline {
+      max-width: 1200px;
+      margin: 4rem auto 0;
+      position: relative;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border-color);
+      transform: translateX(-50%);
+      border-radius: 1px;
+    }
+
+    .timeline-progress {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 2px;
+      height: 0%;
+      background: linear-gradient(to bottom, var(--accent), var(--primary-color));
+      transform: translateX(-50%);
+      border-radius: 1px;
+      transition: height 1s var(--ease-out-expo);
+      box-shadow: 0 0 20px var(--glow-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 6rem;
+      opacity: 0;
+      transform: translateY(100px);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      margin-right: 52%;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      margin-left: 52%;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      left: 50%;
+      top: 2rem;
+      width: 20px;
+      height: 20px;
+      background: var(--accent);
+      border: 4px solid var(--bg-light);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      transition: all 0.3s var(--ease-out-back);
+      box-shadow: 0 0 0 0 rgba(247, 200, 115, 0.4);
+    }
+
+    .timeline-marker::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      width: 32px;
+      height: 32px;
+      border: 2px solid rgba(247, 200, 115, 0.2);
+      border-radius: 50%;
+      animation: ripple 3s infinite;
+    }
+
+    .timeline-item:hover .timeline-marker {
+      transform: translateX(-50%) scale(1.3);
+      background: var(--primary-color);
+      box-shadow: 0 0 0 20px rgba(244, 143, 177, 0.1);
+    }
+
+    @keyframes ripple {
+      0% {
+        transform: scale(0.8);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+
+    .timeline-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      transition: all 0.5s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--primary-color));
+      transform: scaleX(0);
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+
+    .timeline-content:hover::before {
+      transform: scaleX(1);
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow-glow);
+      border-color: var(--accent);
+    }
+
+    /* Enhanced Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: all 0.5s var(--ease-out-expo);
+      opacity: 0;
+      transform: translateY(50px) scale(0.95);
+      position: relative;
+    }
+
+    .project-card.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .project-card:hover {
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: var(--shadow-glow-lg);
+      border-color: var(--accent);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease-out-expo);
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.1);
+    }
+
+    .project-content {
+      position: relative;
+      padding: 2.5rem;
+      text-align: left;
+      overflow: hidden;
+    }
+
+    .project-content::after {
+      content: "";
+      position: absolute;
+      top: var(--y, 50%);
+      left: var(--x, 50%);
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle at center, rgba(247, 200, 115, 0.15) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s var(--ease-out-expo), height 0.6s var(--ease-out-expo);
+      pointer-events: none;
+    }
+
+    .project-content.hovered::after {
+      width: 300%;
+      height: 300%;
+    }
+
+    .project-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-family: var(--font-alt);
+      transition: color 0.3s var(--ease-out-quart);
+    }
+
+    .project-card:hover .project-title {
+      color: var(--primary-color);
+    }
+
+    .project-description {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .tech-tag {
+      background: rgba(247, 200, 115, 0.1);
+      border: 1px solid rgba(247, 200, 115, 0.3);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      color: var(--accent);
+      transition: all 0.3s var(--ease-out-back);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tech-tag::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent);
+      transition: left 0.3s var(--ease-out-expo);
+      z-index: -1;
+    }
+
+    .tech-tag:hover::before {
+      left: 0;
+    }
+
+    .tech-tag:hover {
+      color: #111;
+      transform: translateY(-2px) scale(1.05);
+      border-color: var(--accent);
+    }
+
+    .project-link {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: var(--accent);
+      color: #111;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s var(--ease-out-back);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s var(--ease-out-expo);
+    }
+
+    .project-link:hover::before {
+      left: 100%;
+    }
+
+    .project-link:hover {
+      background: #e5b45f;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Enhanced CTA Section */
+    .section-freelance {
+      padding: 6rem 2rem;
+      background: var(--bg-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-freelance::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(247, 200, 115, 0.1) 0%, transparent 70%);
+      animation: ctaGlow 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes ctaGlow {
+      0% { opacity: 0.3; transform: scale(1); }
+      100% { opacity: 0.6; transform: scale(1.1); }
+    }
+
+    .btn-outline {
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      transition: all 0.3s var(--ease-out-back);
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-outline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent);
+      transition: left 0.3s var(--ease-out-expo);
+      z-index: -1;
+    }
+
+    .btn-outline:hover::before {
+      left: 0;
+    }
+
+    .btn-outline:hover {
+      color: #111;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* Enhanced Footer */
+    .footer {
+      background: var(--bg-light);
+      border-top: 1px solid var(--border-color);
+      padding: 2rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .timeline-line,
+      .timeline-progress {
+        left: 2rem;
+      }
+      
+      .timeline-marker {
+        left: 2rem;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 4rem;
+        margin-right: 0;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1rem;
+      }
+      
+      .project-card {
+        margin-bottom: 2rem;
+      }
+      
+      .overlay-wrap h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-head h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Scroll Progress Bar */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--primary-color));
+      z-index: 1000;
+      transition: width 0.3s var(--ease-out-quart);
+    }
+
+    /* Custom Cursor */
+    .custom-cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease;
+      opacity: 0;
+    }
+
+    .custom-cursor.active {
+      opacity: 1;
+      transform: scale(1.5);
+    }
+
+    /* Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar">
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-animation"></div>
+    <div class="loading-text">
+      <div>Loading Professional Portfolio...</div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="customCursor"></div>
+
+  <div class="page-wrapper">
+    <!-- Enhanced Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom navbar-light fixed-top" id="mainNavbar">
+      <div class="container">
+        <a class="navbar-brand mr-auto" href="index.html">NARENDRA</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="#resume">Experience</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Enhanced Home Section -->
+    <section class="section-home" id="home">
+      <div class="overlay d-flex justify-content-center align-items-center">
+        <div class="overlay-wrap section-head">
+          <span class="mb-2">Hello, I am</span>
+          <h1>NARENDRA PANDEY</h1>
+          <h4>Software Developer, Programmer & Youtuber</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced About Section -->
+    <section class="section section-about" id="about">
+      <div class="section-about-wrap">
+        <div class="row justify-content-center align-items-center">
+          <div class="col">
+            <div class="about-desc">
+              <div class="about-desc-content">
+                <h2>About Me</h2>
+                <p class="mt-4 font-weight-light">
+                  Experienced software developer with a focus on building scalable, secure, and maintainable web applications. <br>
+                  Experienced in project planning, task tracking, and delivery management while maintaining alignment with client and business requirements.
+                </p>
+                <hr>
+              </div>
+              <ul class="about-desc-social mt-4 list-unstyled list-inline">
+                <li class="list-inline-item"><a href="https://wa.me//+917487903290" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                <li class="list-inline-item"><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                <li class="list-inline-item"><a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a></li>
+                <li class="list-inline-item"><a href="#" target="_blank"><i class="fa-solid fa-user-secret"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-5 d-none d-md-block">
+            <img class="img-fluid img-thumbnail" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&w=400&h=400&fit=crop&crop=face" alt="About Picture">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Services Section -->
+    <section class="section section-services" id="services">
+      <div class="container">
+        <div class="section-head text-center">
+          <span>WHAT I DO</span>
+          <h2>Skills</h2>
+        </div>
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <figure class="shape-box shape-box_half">
+              <img src="https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?auto=format&fit=crop&w=800&q=80" alt="Software Developer" class="img-fluid">
+              <div class="brk-abs-overlay z-index-0 bg-black opacity-60"></div>
+              <figcaption>
+                <div class="show-cont">
+                  <h3 class="card-no">01</h3>
+                  <h4 class="card-main-title">Software Developer</h4>
+                </div>
+                <p class="card-content">
+                  Develops software using MERN stack, Laravel, Monolith architecture & specialization in MySQL and API-driven solutions.
+                </p>
+                <a href="#" class="read-more-btn">Read More</a>
+              </figcaption>
+              <span class="after"></span>
+            </figure>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <figure class="shape-box shape-box_half">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Programmer" class="img-fluid">
+              <div class="brk-abs-overlay z-index-0 bg-black opacity-60"></div>
+              <figcaption>
+                <div class="show-cont">
+                  <h3 class="card-no">02</h3>
+                  <h4 class="card-main-title">Programmer</h4>
+                </div>
+                <p class="card-content">
+                  Practices coding problems like DSA using LeetCode to improve logical thinking and problem-solving skills.
+                </p>
+                <a href="#" class="read-more-btn">Read More</a>
+              </figcaption>
+              <span class="after"></span>
+            </figure>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <figure class="shape-box shape-box_half">
+              <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80" alt="Youtuber" class="img-fluid">
+              <div class="brk-abs-overlay z-index-0 bg-black opacity-60"></div>
+              <figcaption>
+                <div class="show-cont">
+                  <h3 class="card-no">03</h3>
+                  <h4 class="card-main-title">Youtuber</h4>
+                </div>
+                <p class="card-content">
+                  Runs a YouTube channel with 35K+ subscribers, creating gameplay videos, tournament casting, and livestream content.
+                </p>
+                <a href="#" class="read-more-btn">Read More</a>
+              </figcaption>
+              <span class="after"></span>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Experience Section -->
+    <section class="section section-resume" id="resume">
+      <div class="container">
+        <div class="section-head text-center">
+          <span>What I Work</span>
+          <h2>My Experience</h2>
+        </div>
+        
+        <div class="experience-timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-progress" id="timelineProgress"></div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Senior Full Stack Developer</h3>
+              <h4 style="color: var(--primary-color); margin-bottom: 1rem;">TechCorp Solutions • 2022 - Present</h4>
+              <p>Leading development of enterprise-grade applications using MERN stack and Laravel. Responsible for architecture decisions, code reviews, and mentoring junior developers. Successfully delivered 15+ projects with 99.9% uptime.</p>
+              <div class="mt-3">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">MySQL</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Full Stack Developer</h3>
+              <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Digital Innovations • 2020 - 2022</h4>
+              <p>Developed and maintained web applications for various clients. Specialized in API development and database optimization. Improved application performance by 40% through code optimization and caching strategies.</p>
+              <div class="mt-3">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">AWS</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Junior Developer</h3>
+              <h4 style="color: var(--primary-color); margin-bottom: 1rem;">StartupTech • 2019 - 2020</h4>
+              <p>Started my professional journey as a junior developer, working on frontend and backend development. Gained experience in modern web technologies and agile development methodologies.</p>
+              <div class="mt-3">
+                <span class="tech-tag">HTML/CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">Git</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Projects Section -->
+    <section class="section section-dark" id="projects">
+      <div class="container">
+        <div class="section-head text-center">
+          <span>Achievements</span>
+          <h2>My Projects</h2>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=80" alt="Portfolio Website" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">Portfolio Website</h3>
+              <p class="project-description">
+                A beautifully crafted personal website to showcase my work, resume, and contact info, built with responsive design and modern UI practices.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+              <a href="https://your-portfolio.com" class="project-link" target="_blank">View Live</a>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Node.js REST API" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">Node.js REST API</h3>
+              <p class="project-description">
+                A secure REST API with JWT auth, Express.js routing, and MongoDB integration for scalable backend services.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">MongoDB</span>
+              </div>
+              <a href="https://github.com/yourusername/node-rest-api" class="project-link" target="_blank">View Code</a>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Admin Dashboard" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">Admin Dashboard</h3>
+              <p class="project-description">
+                A responsive React admin dashboard with charts, tables, and authentication, built with clean UI.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Chart.js</span>
+                <span class="tech-tag">Firebase</span>
+              </div>
+              <a href="https://your-dashboard-demo.com" class="project-link" target="_blank">View Live</a>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="Mobile App Design" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">Mobile App Design</h3>
+              <p class="project-description">
+                High-fidelity Figma prototype for a modern mobile app, featuring intuitive UX flows and stylish components.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-tag">Figma</span>
+                <span class="tech-tag">UI/UX</span>
+              </div>
+              <a href="https://www.figma.com/file/your-prototype" class="project-link" target="_blank">View Prototype</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced CTA Section -->
+    <section class="section section-freelance section-light text-center" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>Let's work together!</h2>
+        </div>
+        <div class="mt-5">
+          <a href="./AdityaSeth_CV.pdf" target="_blank" class="btn btn-outline hover-state">Here's my CV</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer section section-light">
+      <div class="container">
+        <p class="copyright text-center mb-0">&copy; <a href="#">Narendra Pandey</a> 2025</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Enhanced JavaScript -->
+  <script>
+    // Professional Portfolio Animation Engine
+    class ProfessionalPortfolioEngine {
+      constructor() {
+        this.isLoaded = false;
+        this.initializeLoadingExperience();
+        this.initializeGSAPAnimations();
+        this.initializePremiumInteractions();
+        this.initializeScrollEffects();
+        this.initializeCustomCursor();
+      }
+
+      initializeLoadingExperience() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        
+        setTimeout(() => {
+          loadingScreen.classList.add('hidden');
+          this.startPremiumExperience();
+        }, 2000);
+      }
+
+      startPremiumExperience() {
+        this.isLoaded = true;
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Animate home section
+        this.animateHomeSection();
+        
+        // Initialize scroll-triggered animations
+        this.initializeScrollAnimations();
+        
+        // Start real-time features
+        this.initializeRealTimeFeatures();
+      }
+
+      initializeGSAPAnimations() {
+        // Set initial states
+        gsap.set('.overlay-wrap', { opacity: 0, y: 50 });
+        gsap.set('.overlay-wrap span', { opacity: 0, y: 20 });
+        gsap.set('.overlay-wrap h1', { opacity: 0, y: 30 });
+        gsap.set('.overlay-wrap h4', { opacity: 0, y: 20 });
+        gsap.set('.shape-box', { opacity: 0, y: 50, scale: 0.9 });
+        gsap.set('.timeline-item', { opacity: 0, y: 100 });
+        gsap.set('.project-card', { opacity: 0, y: 50, scale: 0.95 });
+      }
+
+      animateHomeSection() {
+        const tl = gsap.timeline();
+        
+        tl.to('.overlay-wrap', {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out"
+        })
+        .to('.overlay-wrap span', {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out"
+        }, "-=0.5")
+        .to('.overlay-wrap h1', {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out"
+        }, "-=0.3")
+        .to('.overlay-wrap h4', {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out"
+        }, "-=0.5");
+      }
+
+      initializeScrollAnimations() {
+        // About section animations
+        gsap.to('.about-desc-content', {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: '.about-desc-content',
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        gsap.to('.about-desc-content hr', {
+          scaleX: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: '.about-desc-content hr',
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        gsap.to('.about-desc-social', {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: '.about-desc-social',
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        gsap.to('.img-thumbnail', {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: '.img-thumbnail',
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        // Services section animations
+        gsap.utils.toArray('.shape-box').forEach((box, index) => {
+          gsap.to(box, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: box,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse"
+            },
+            delay: index * 0.2
+          });
+        });
+
+        // Timeline animations
+        gsap.utils.toArray('.timeline-item').forEach((item, index) => {
+          gsap.to(item, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+              onEnter: () => this.updateTimelineProgress()
+            },
+            delay: index * 0.3
+          });
+        });
+
+        // Project cards animations
+        gsap.utils.toArray('.project-card').forEach((card, index) => {
+          gsap.to(card, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse"
+            },
+            delay: index * 0.2
+          });
+        });
+      }
+
+      updateTimelineProgress() {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const visibleItems = Array.from(timelineItems).filter(item => {
+          const rect = item.getBoundingClientRect();
+          return rect.top < window.innerHeight && rect.bottom > 0;
+        });
+        
+        const progress = (visibleItems.length / timelineItems.length) * 100;
+        
+        gsap.to('#timelineProgress', {
+          height: `${progress}%`,
+          duration: 1,
+          ease: "power3.out"
+        });
+      }
+
+      initializePremiumInteractions() {
+        // Enhanced navbar scroll effect
+        window.addEventListener('scroll', () => {
+          const navbar = document.getElementById('mainNavbar');
+          if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        });
+
+        // Project card mouse tracking
+        document.querySelectorAll('.project-card').forEach(card => {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            
+            const content = card.querySelector('.project-content');
+            content.style.setProperty('--x', `${x}%`);
+            content.style.setProperty('--y', `${y}%`);
+            content.classList.add('hovered');
+          });
+          
+          card.addEventListener('mouseleave', () => {
+            const content = card.querySelector('.project-content');
+            content.classList.remove('hovered');
+          });
+        });
+
+        // Enhanced button interactions
+        document.querySelectorAll('.btn, .project-link, .read-more-btn').forEach(btn => {
+          btn.addEventListener('mouseenter', () => {
+            gsap.to(btn, {
+              scale: 1.05,
+              duration: 0.3,
+              ease: "back.out(1.7)"
+            });
+          });
+          
+          btn.addEventListener('mouseleave', () => {
+            gsap.to(btn, {
+              scale: 1,
+              duration: 0.3,
+              ease: "power2.out"
+            });
+          });
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+              gsap.to(window, {
+                scrollTo: target,
+                duration: 1.5,
+                ease: "power3.inOut"
+              });
+            }
+          });
+        });
+      }
+
+      initializeScrollEffects() {
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+          const scrolled = window.pageYOffset;
+          const maxHeight = document.body.scrollHeight - window.innerHeight;
+          const progress = (scrolled / maxHeight) * 100;
+          
+          document.getElementById('scrollProgress').style.width = `${Math.min(progress, 100)}%`;
+        });
+
+        // Parallax effects
+        gsap.utils.toArray('.timeline-content').forEach(content => {
+          gsap.to(content, {
+            y: -30,
+            ease: "none",
+            scrollTrigger: {
+              trigger: content,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1
+            }
+          });
+        });
+      }
+
+      initializeCustomCursor() {
+        const cursor = document.getElementById('customCursor');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          cursor.classList.add('active');
+        });
+
+        document.addEventListener('mouseleave', () => {
+          cursor.classList.remove('active');
+        });
+
+        // Smooth cursor animation
+        function animateCursor() {
+          cursorX += (mouseX - cursorX) * 0.1;
+          cursorY += (mouseY - cursorY) * 0.1;
+          
+          cursor.style.left = cursorX + 'px';
+          cursor.style.top = cursorY + 'px';
+          
+          requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor interactions
+        document.querySelectorAll('a, button, .project-card, .shape-box').forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            cursor.style.transform = 'scale(2)';
+            cursor.style.background = 'rgba(244, 143, 177, 0.8)';
+          });
+          
+          el.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'scale(1)';
+            cursor.style.background = 'var(--accent)';
+          });
+        });
+      }
+
+      initializeRealTimeFeatures() {
+        // Performance monitoring
+        this.monitorPerformance();
+        
+        // Intersection observer for lazy loading
+        this.initializeLazyLoading();
+      }
+
+      monitorPerformance() {
+        // Monitor frame rate
+        let frameCount = 0;
+        let lastTime = performance.now();
+        
+        const checkFPS = () => {
+          frameCount++;
+          const currentTime = performance.now();
+          
+          if (currentTime - lastTime >= 1000) {
+            const fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
+            
+            if (fps < 30) {
+              // Reduce animation complexity for better performance
+              document.body.classList.add('reduced-motion');
+            }
+            
+            frameCount = 0;
+            lastTime = currentTime;
+          }
+          
+          requestAnimationFrame(checkFPS);
+        };
+        
+        requestAnimationFrame(checkFPS);
+      }
+
+      initializeLazyLoading() {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        const imageObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.src; // Trigger loading
+              imageObserver.unobserve(img);
+            }
+          });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+      }
+    }
+
+    // Initialize the professional portfolio
+    document.addEventListener('DOMContentLoaded', () => {
+      new ProfessionalPortfolioEngine();
+    });
+
+    // Reduced motion support
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.body.classList.add('reduced-motion');
+    }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
