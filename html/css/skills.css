@@ -1,0 +1,34 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poller+One&display=swap"); */
+
+      /* body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #0d0d0d;
+      } */
+
+      .skill-section {
+        width: 100%;
+        height: 600px;
+        position: relative;
+        /* background: #111; */
+        overflow: hidden;
+      }
+
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: grab;
+      }
+
+      canvas:active {
+        cursor: grabbing;
+      }
+
+      /* SEO text */
+      .seo-text {
+        position: absolute;
+        left: -9999px;
+      }

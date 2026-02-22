@@ -1,0 +1,165 @@
+/* 
+  PROJECTS
+  -------------------------------------------------
+*/
+    #projects-section {
+		background: var(--bg-dark);
+		color: var(--text-color);
+		padding: 5rem 1rem;
+		text-align: center;
+	}
+
+	#projects-section .section-head {
+		margin-bottom: 3rem;
+	}
+
+	#projects-section .section-head span {
+		display: block;
+		font-size: 1rem;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	#projects-section .section-head h2 {
+		font-size: 2.5rem;
+		margin-top: 0.5rem;
+		color: var(--accent);
+	}
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	@media (max-width: 768px) {
+		.projects-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	/* Project Card base style */
+	.project-card {
+		background: var(--bg-card);
+		border: 1px solid var(--border-color);
+		border-radius: 1rem;
+		box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+		overflow: hidden;
+		transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+		
+		/* Lazy-load initial state */
+		opacity: 0;
+		transform: translateY(40px) scale(0.97);
+	}
+
+	/* Lazy-load in-view */
+	.project-card.in-view {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease;
+	}
+
+	/* Hover lift and glow */
+	.project-card:hover {
+		transform: translateY(-8px) scale(1.02);
+		box-shadow: 0 0 30px var(--highlight-color);
+		border-color: var(--highlight-color);
+	}
+
+	/* Project Image */
+	.project-image {
+		width: 100%;
+		height: 250px;
+		object-fit: cover;
+		background: #222;
+		transition: filter 0.3s ease;
+	}
+
+	/* Optional subtle brightness on hover */
+	.project-card:hover .project-image {
+		filter: brightness(1.05);
+	}
+
+	/* Project Content */
+	.project-content {
+	position: relative;
+	padding: 2rem;
+	text-align: left;
+	overflow: hidden;
+	}
+
+	/* Radial hover reveal effect */
+	.project-content::after {
+		content: "";
+		position: absolute;
+		top: var(--y, 50%);
+		left: var(--x, 50%);
+		width: 0;
+		height: 0;
+		background: radial-gradient(circle at center, rgba(247, 200, 115, 0.2) 0%, transparent 80%);
+		transform: translate(-50%, -50%);
+		transition: width 0.4s ease, height 0.4s ease;
+		pointer-events: none;
+	}
+
+	.project-content.hovered::after {
+		width: 200%;
+		height: 200%;
+	}
+
+	/* Project Titles */
+	.project-title {
+		font-size: 1.8rem;
+		margin-bottom: 0.75rem;
+		color: var(--accent);
+		font-family: var(--font-alt);
+	}
+
+	.project-description {
+		font-size: 1rem;
+		color: var(--text-muted);
+		margin-bottom: 1.5rem;
+		line-height: 1.6;
+	}
+
+	/* Tech Stack Tags */
+	.tech-stack {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.tech-tag {
+		background: #222;
+		border: 1px solid #444;
+		padding: 0.4rem 0.8rem;
+		border-radius: 0.5rem;
+		font-size: 0.9rem;
+		color: var(--accent);
+		transition: background 0.3s ease, color 0.3s ease;
+	}
+
+	.tech-tag:hover {
+		background: var(--accent);
+		color: #111;
+	}
+
+	/* Project Link/Button */
+	.project-link {
+		display: inline-block;
+		padding: 0.6rem 1.2rem;
+		background: var(--accent);
+		color: #111;
+		border-radius: 0.5rem;
+		text-decoration: none;
+		font-weight: bold;
+		transition: background 0.3s ease;
+	}
+
+	.project-link:hover {
+		background: #e5b45f;
+	}

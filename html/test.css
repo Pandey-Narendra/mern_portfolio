@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:400,700&display=swap');
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+.edu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* width: 100vw; */
+  height: auto;
+  /* background-color: #e6e6e6; */
+}
+
+.edu-header {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin-top: 10rem;
+  margin-right: 10rem;
+  margin-left: 10rem;
+  margin-bottom: 5rem;
+}
+
+.edu-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #c31432;
+  text-transform: uppercase;
+  margin-bottom: 20px; 
+}
+
+.edu-text {
+  font-size: 3rem;
+  padding-bottom: 1rem;
+}
+
+.certs {
+  display: flex;
+  justify-content: center;
+}
+
+.certs img {
+  margin-right: 2rem;
+  height: 240px;
+  width: auto;
+}
+
+#cert {
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px #111111;
+  transition: transform .3s ease;
+}
+
+#cert:hover {
+  transform: scale(1.5);
+}
+
+#c-span {
+  align-self: center;
+  width: 50%;
+  border: 1px solid #999;
+  margin-top: 3rem;
+}
+
+.courses {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 5rem;
+}
+
+.courses-content {
+  margin-top: 5rem;
+}
+
+#c-text {
+  color: #555;
+  line-height: 2rem;
+  font-family: "Lora", serif;
+  font-size: 1.2rem;
+  margin-bottom: 5rem;
+}
+
+#c-img {
+  height: auto;
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+}
+
+#c-title {
+  font-size: 1.1rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+#c-cat {
+  font-size: 0.9rem;
+  color: #777;
+  letter-spacing: 1.2px;
+  margin-top: 10px;
+}

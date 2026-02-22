@@ -1,0 +1,139 @@
+/*** Testimonial Section ***/
+
+.large-container{
+max-width:1580px;
+padding:0 30px;
+margin:0 auto;
+position:relative;
+}
+
+.testimonial-section{
+position:relative;
+/* padding-top:80px; */
+/* padding-bottom:210px; */
+overflow:hidden;
+}
+
+.testimonial-section:before{
+position:absolute;
+left:-200px;
+top:22%;
+background:url(http://t.commonsupport.com/adro/images/icons/ring-circle.png) no-repeat center;
+width:701px;
+height:756px;
+content:"";
+animation:fa-spin 25s infinite alternate;
+}
+
+.sec-title{margin-bottom:115px;}
+.sec-title .title{margin-bottom:20px;}
+
+.testimonial-carousel{
+max-width:1100px;
+margin:0 -50px;
+position:relative;
+}
+
+/* BLOCK */
+.testimonial-block{padding:50px;}
+
+.testimonial-block .inner-box{
+padding:80px 105px;
+/* background:#fff; */
+background:#2a2d35;
+/* box-shadow:0 0 50px rgba(226,222,232,.75); */
+box-shadow:0 0 50px #272523;
+
+}
+
+.testimonial-block .text{
+font-size:18px;
+line-height:32px;
+color:#f9f9f9;
+margin-bottom:50px;
+}
+
+.info-box{padding-left:115px;position:relative;}
+
+.info-box .thumb{
+position:absolute;
+left:0;top:0;
+height:82px;width:82px;
+}
+.info-box .thumb img{
+border:6px solid #f7c873;
+border-radius:50%;
+width:100%;
+box-shadow:0 45px 45px rgba(147,147,147,.35);
+}
+
+.name{
+font-size:21px;
+font-weight:700;
+margin-bottom:10px;
+color:#f7c873;
+}
+.designation{
+font-size:16px;
+color:#eed098;
+}
+
+/* OWL NAV */
+.testimonial-carousel .owl-nav{
+position:absolute;
+right:75px;
+bottom:70px;
+}
+.testimonial-carousel .owl-next,
+.testimonial-carousel .owl-prev{
+height:75px;
+width:75px;
+line-height:75px;
+text-align:center;
+border-radius:50%;
+background:#f3a109;
+transition:300ms;
+}
+.testimonial-carousel .owl-next:hover,
+.testimonial-carousel .owl-prev:hover{
+background:#eed098;
+/* box-shadow:0 24px 24px rgba(187,187,187,.75); */
+box-shadow:0 24px 24px rgba(187,187,187,.75);
+}
+
+.arrow-right,.arrow-left{
+display:inline-block;
+height:9px;
+width:43px;
+background-repeat:no-repeat;
+background-position:center;
+}
+.arrow-left{
+background-image:url(http://t.commonsupport.com/adro/images/icons/arrow-left-2.png);
+}
+.arrow-right{
+background-image:url(http://t.commonsupport.com/adro/images/icons/arrow-right-2.png);
+}
+
+.thumb-layer{
+position:absolute;
+right:30px;
+top:120px;
+}
+
+.thumb-layer img{max-width:100%;height:auto;}
+
+@media(max-width:767px){
+.testimonial-block{padding:0;}
+.testimonial-block .inner-box{
+box-shadow:none;
+border:2px solid #f1f1f1;
+}
+.testimonial-carousel .owl-nav{
+position:relative;
+right:auto;
+bottom:auto;
+text-align:center;
+margin-top:20px;
+}
+}
