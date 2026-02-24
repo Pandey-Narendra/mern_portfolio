@@ -65,7 +65,8 @@
 	/* Hover lift and glow */
 	.project-card:hover {
 		transform: translateY(-8px) scale(1.02);
-		box-shadow: 0 0 30px var(--highlight-color);
+		/* box-shadow: 0 0 30px var(--highlight-color); */
+		box-shadow: 0 0 10px #ebd4aa;
 		border-color: var(--highlight-color);
 	}
 

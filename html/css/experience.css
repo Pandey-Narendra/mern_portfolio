@@ -26,14 +26,14 @@
 	border:1px solid #000;
 	background-color:#000;
 	cursor:pointer;
-	stroke:#FFF;
+	stroke:#1646D0;
 	border-radius:50%;
 	transition:all .2s ease-out;
 	position:relative;
 }
 
 .ag-timeline-carousel-arrow:hover {
-	border:1px solid #000;
+	border:1px solid #f7c873;
 	background-color:transparent;
 }
 
@@ -41,11 +41,11 @@
 .js-ag-timeline-carousel-arrow_prev { margin:0 0 10px; }
 
 .js-ag-timeline-carousel-arrow_prev:hover,
-.js-ag-timeline-carousel-arrow_next:hover { stroke:#000; }
+.js-ag-timeline-carousel-arrow_next:hover { stroke:#ffffff; }
 
 .svg-arrow-left,.svg-arrow-right {
     height:18px;
-    width:10px;
+    width:10px;	
     margin:-8px 0 0 -5px;
     position:absolute;
     top:50%;
@@ -57,9 +57,10 @@
 .ag-timeline_year {
 	line-height:1;
 	margin:0 0 40px;
-	font-weight:500;
-	font-size:90px;
-	color:#f5f5f5;
+	font-weight:300;
+	font-size:50px;
+	color:#fffafa
+;
 }
 
 .ag-timeline_text p {
@@ -71,7 +72,7 @@
 
 .ag-timeline_text a {
 	text-decoration:underline;
-	color:#1646D0;
+	/* color:#f7c873; */
 }
 .ag-timeline_text a:hover { text-decoration:none; }
 
@@ -94,7 +95,7 @@
 .ag-timeline-carousel-nav_list:after {
 	content:"";
 	height:1px;
-	background-color:#1646D0;
+	background-color:#f7c873;
 	position:absolute;
 	left:0;
 	right:0;
@@ -104,7 +105,7 @@
 .ag-timeline-carousel-nav_item {
 	display:inline-block;
 	line-height:1;
-	width:60px;
+	width:120px;
 	padding:130px 15px 0;
 	cursor:pointer;
 	vertical-align:bottom;
@@ -119,7 +120,7 @@
 	height:5px;
 	width:5px;
 	margin:0 auto;
-	background-color:#B1C0E9;
+	background-color:#f4f4f4;
 	position:absolute;
 	left:0;
 	right:0;
