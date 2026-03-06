@@ -32,3 +32,44 @@
         position: absolute;
         left: -9999px;
       }
+
+      /* 
+        RESPONSIVE SKILLS SECTION
+        -------------------------------------------------
+      */
+
+      /* Mobile (up to 480px) */
+      @media screen and (max-width: 480px) {
+        .skill-section {
+          height: 300px;
+          min-height: 300px;
+        }
+
+        canvas {
+          touch-action: manipulation;
+        }
+      }
+
+      /* Tablets (481px to 768px) */
+      @media screen and (min-width: 481px) and (max-width: 768px) {
+        .skill-section {
+          height: 400px;
+          min-height: 400px;
+        }
+      }
+
+      /* Small Desktops (769px to 1024px) */
+      @media screen and (min-width: 769px) and (max-width: 1024px) {
+        .skill-section {
+          height: 500px;
+          min-height: 500px;
+        }
+      }
+
+      /* Large Desktops (1025px and above) */
+      @media screen and (min-width: 1025px) {
+        .skill-section {
+          height: clamp(500px, 70vh, 700px);
+          min-height: 600px;
+        }
+      }

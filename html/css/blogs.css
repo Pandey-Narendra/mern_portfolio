@@ -2,58 +2,74 @@
 nav-blog {
     display: flex;
     flex-direction: column;
-    margin-top: 20vh;
-    padding: clamp(1rem, 5vw, 6rem);
+    justify-content: center;
+    align-items: center;
+    margin-top: clamp(2rem, 8vw, 4rem);
+    padding: clamp(2rem, 5vw, 4rem);
+    min-height: 50vh;
 }
 
 nav-blog > a {
-    color: rgba(255, 255, 255, 0.25);
+    color: var(--accent);
     font-family: "Open Sans", sans-serif;
-    font-size: clamp(3rem, 8vw, 10rem);
-    font-weight: 300;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
     text-decoration: none;
     position: relative;
+    transition: transform 300ms ease, color 300ms ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 nav-blog > a:hover {
-    color: white;
+    color: #e5b45f;
+    transform: translateY(-8px);
 }
 
 nav-blog > a > span {
     display: block;
-    border-bottom: 1px solid transparent;
-    border-top: 1px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-top: 2px solid transparent;
     position: relative;
     z-index: 2;
+    padding: 0.5rem 0;
+    transition: border-color 300ms ease;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
 }
 
 nav-blog > a:hover > span {  
-    border-top-color: white;
-    border-bottom-color: white;
+    border-top-color: var(--accent);
+    border-bottom-color: var(--accent);
 }
 
 nav-blog > a > img {
-    position: absolute;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5);
-    transition: transform 250ms, opacity 250ms;
-    pointer-events: none;
-    width: min(40vw, 500px);
+    position: relative;
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 300ms ease, box-shadow 300ms ease;
+    pointer-events: auto;
+    width: clamp(90vw - 2rem, 90vw, 600px);
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 nav-blog > a:hover > img {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(247, 200, 115, 0.3);
 }
 
 /* -- YouTube Link Styles -- */
 
 body.menu-toggled > .meta-link > span {
-    color: rgb(30, 30, 30);
+    color: var(--text-color);
 }
 
 #source-link {
-    bottom: 60px;
+    bottom: 100px;
 }
 
 #source-link > i {
@@ -66,35 +82,165 @@ body.menu-toggled > .meta-link > span {
 
 .meta-link {
     align-items: center;
-    backdrop-filter: blur(3px);
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    bottom: 10px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(247, 200, 115, 0.2);
+    border-radius: 2rem;
+    bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     cursor: pointer;  
     display: inline-flex;
-    gap: 5px;
-    left: 10px;
-    padding: 10px 20px;
+    gap: 0.6rem;
+    left: 20px;
+    padding: 0.6rem 1.2rem;
     position: fixed;
     text-decoration: none;
-    transition: background-color 400ms, border-color 400ms;
+    transition: background-color 300ms ease, border-color 300ms ease, transform 300ms ease;
     z-index: 10000;
+    min-height: 44px;
 }
 
 .meta-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(247, 200, 115, 0.4);
+    transform: translateY(-2px);
 }
 
 .meta-link > i, .meta-link > span {
-    height: 20px;
-    line-height: 20px;
+    height: 18px;
+    line-height: 18px;
 }
 
 .meta-link > span {
-    color: white;
+    color: var(--text-color);
     font-family: "Rubik", sans-serif;
     font-weight: 500;
+}
+
+/* 
+  RESPONSIVE BLOGS SECTION
+  -------------------------------------------------
+*/
+
+/* Mobile (up to 480px) */
+@media screen and (max-width: 480px) {
+    nav-blog {
+        margin-top: clamp(1rem, 5vw, 2rem);
+        padding: 1.5rem 1rem;
+        min-height: 45vh;
+    }
+
+    nav-blog > a {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+        margin-bottom: 1rem;
+    }
+
+    nav-blog > a > span {
+        font-size: 0.9rem;
+    }
+
+    nav-blog > a > img {
+        width: calc(100vw - 2rem);
+        border-radius: 0.75rem;
+    }
+
+    .meta-link {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.75rem;
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .meta-link > i, .meta-link > span {
+        height: 14px;
+        line-height: 14px;
+    }
+}
+
+/* Tablets (481px to 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    nav-blog {
+        margin-top: clamp(2rem, 6vw, 3rem);
+        padding: clamp(2rem, 4vw, 3rem);
+        min-height: 50vh;
+    }
+
+    nav-blog > a {
+        font-size: clamp(2.5rem, 7vw, 3.5rem);
+        margin-bottom: 1.5rem;
+    }
+
+    nav-blog > a > span {
+        font-size: 1rem;
+    }
+
+    nav-blog > a > img {
+        width: min(80vw, 500px);
+    }
+
+    .meta-link {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+        bottom: 15px;
+        left: 15px;
+    }
+}
+
+/* Small Desktops (769px to 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    nav-blog {
+        margin-top: clamp(3rem, 6vw, 4rem);
+        padding: clamp(3rem, 5vw, 4rem);
+        min-height: 60vh;
+    }
+
+    nav-blog > a {
+        font-size: clamp(3rem, 7vw, 4rem);
+        margin-bottom: 2rem;
+    }
+
+    nav-blog > a > span {
+        font-size: 1.1rem;
+    }
+
+    nav-blog > a > img {
+        width: min(70vw, 550px);
+    }
+
+    .meta-link {
+        padding: 0.65rem 1.2rem;
+        font-size: 0.85rem;
+        bottom: 20px;
+        left: 20px;
+    }
+}
+
+/* Large Desktops (1025px and above) */
+@media screen and (min-width: 1025px) {
+    nav-blog {
+        margin-top: clamp(4rem, 6vw, 5rem);
+        padding: clamp(4rem, 5vw, 5rem);
+        min-height: 70vh;
+    }
+
+    nav-blog > a {
+        font-size: clamp(4rem, 8vw, 5rem);
+        margin-bottom: 2.5rem;
+        gap: 1.5rem;
+    }
+
+    nav-blog > a > span {
+        font-size: 1.2rem;
+    }
+
+    nav-blog > a > img {
+        width: min(60vw, 600px);
+    }
+
+    .meta-link {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.9rem;
+        bottom: 30px;
+        left: 30px;
+    }
 }

@@ -1,25 +1,55 @@
 /* 
-  THEME VARIABLES
+  THEME VARIABLES & DESIGN SYSTEM
   -------------------------------------------------
+  Consistent color palette, typography, and spacing
+  across all sections for unified visual language
 */
 :root {
+  /* Colors - Primary Palette */
   --primary-color: #f48fb1;
   --secondary-color: #81d4fa;
   --highlight-color: #f7c873;
   --glow-color: rgba(244, 143, 177, 0.6);
 
+  /* Colors - Background Hierarchy */
   --bg-dark: #0b0b0c;
   --bg-light: #121212;
   --bg-card: #151515;
   --border-color: #333;
+
+  /* Colors - Text Hierarchy */
   --text-color: #e2e2e2;
   --text-muted: #ccc;
   --accent: #f7c873;
 
-  /* --font-main: 'Inter', sans-serif; */
+  /* Typography */
   --font-main: 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', sans-serif;
   --font-alt: 'Cormorant Garamond', serif;
   --font-sans: 'Lato', sans-serif;
+
+  /* Spacing System */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Transitions */
+  --transition-base: 300ms ease-in-out;
+  --transition-hover: 200ms ease-out;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 0 20px var(--highlight-color);
+
+  /* Elevation Glow */
+  --elevation-glow-accent: 0 0 20px var(--highlight-color);
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
 }
 
 /* 
@@ -52,17 +82,18 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   line-height: 1.6;
-  color: var(--text-muted);
+  color: var(--text-color);
 }
 
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color var(--transition-base);
 }
 
 a:hover {
-  color: #1646D0;
+  color: var(--highlight-color);
+  opacity: 0.85;
 }
 
 img {
@@ -76,14 +107,21 @@ img {
   border: 2px solid var(--accent);
   color: var(--accent);
   background: transparent;
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
-  transition: background 0.3s ease, color 0.3s ease;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-base), color var(--transition-base);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .btn-outline:hover {
   background: var(--accent);
   color: #111;
+  box-shadow: var(--shadow-sm);
 }
 
 /* 
@@ -120,16 +158,16 @@ img {
 .inside-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 1rem;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
 .card:hover,
 .project-card:hover,
 .inside-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px var(--highlight-color);
+  box-shadow: var(--elevation-glow-accent);
   border-color: var(--highlight-color);
 }
 
@@ -171,6 +209,7 @@ img {
   /* background-image: url("../images/linkedIn\ Banner.png"); */
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -237,7 +276,7 @@ img {
 }
 
 .about-desc-social i:hover {
-  color: #e5b45f;
+  color: var(--accent);
 }
 
 .about-desc-social li a {
@@ -311,6 +350,7 @@ img {
   position: absolute;
   bottom: 0;
   background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px);
   color: var(--text-color);
   padding: 1.5rem;
   transform: translateY(100%);
@@ -336,7 +376,7 @@ img {
 .card-content {
   margin-top: 1rem;
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: var(--text-color);
 }
 
 .read-more-btn {
@@ -352,6 +392,400 @@ img {
 
 .read-more-btn:hover {
   background: #e5b45f;
-  color: #6C00FF;
+  color: #111;
+}
+
+/* 
+  RESPONSIVE UTILITIES & MEDIA QUERIES
+  -------------------------------------------------
+*/
+
+/* Typography fluid scaling */
+h1 {
+  font-size: clamp(1.5rem, 5vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+}
+
+h4 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+p {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+}
+
+/* Container and section scaling */
+.section {
+  padding: clamp(2rem, 5vw, 5rem) clamp(0.75rem, 3vw, 2rem);
+}
+
+.section-head {
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.section-head h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* Button responsive sizing */
+.btn,
+.btn-outline,
+.read-more-btn {
+  min-height: 44px;
+  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1.5rem);
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+}
+
+/* 
+  MOBILE DEVICES (up to 480px)
+  -------------------------------------------------
+*/
+@media screen and (max-width: 480px) {
+  /* Global */
+  body {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  /* Home */
+  .section-home {
+    height: 80vh;
+  }
+
+  .overlay-wrap h1 {
+    font-size: 1.75rem;
+    margin: 0.75rem 0;
+  }
+
+  .overlay-wrap h4 {
+    font-size: 0.9rem;
+  }
+
+  /* Navigation */
+  .navbar {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  /* Services/Cards */
+  .shape-box {
+    width: 100%;
+    height: 250px;
+    margin: 0;
+  }
+
+  .box-wrapper {
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .card-no {
+    font-size: 1.5rem;
+  }
+
+  .card-main-title {
+    font-size: 0.95rem;
+  }
+
+  .card-content {
+    font-size: 0.85rem;
+  }
+
+  /* About */
+  .section-about-wrap {
+    max-width: 100%;
+  }
+
+  .about-desc-social li a {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .img-thumbnail {
+    border-radius: 0.5rem;
+  }
+}
+
+/* 
+  TABLETS (481px to 768px)
+  -------------------------------------------------
+*/
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  /* Global */
+  .section {
+    padding: 3rem 1.5rem;
+  }
+
+  /* Home */
+  .section-home {
+    height: 85vh;
+  }
+
+  .overlay-wrap h1 {
+    font-size: 2.25rem;
+  }
+
+  .overlay-wrap h4 {
+    font-size: 1rem;
+  }
+
+  /* Services/Cards */
+  .shape-box {
+    width: 100%;
+    height: 300px;
+  }
+
+  .box-wrapper {
+    gap: 1.5rem;
+    flex-direction: column;
+  }
+
+  .section-head h2 {
+    font-size: 2rem;
+  }
+
+  /* About */
+  .section-about-wrap {
+    max-width: 100%;
+  }
+
+  .about-desc-social li a {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* 
+  SMALL DESKTOPS (769px to 1024px)
+  -------------------------------------------------
+*/
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* Global */
+  .section {
+    padding: 4rem 2rem;
+  }
+
+  /* Home */
+  .section-home {
+    height: 90vh;
+  }
+
+  /* Services/Cards */
+  .shape-box {
+    width: 100%;
+    height: 350px;
+  }
+
+  .box-wrapper {
+    gap: 1.5rem;
+  }
+
+  .section-head h2 {
+    font-size: 2.2rem;
+  }
+
+  /* About */
+  .section-about-wrap {
+    max-width: 900px;
+  }
+}
+
+/* 
+  LARGE DESKTOPS (1025px and above)
+  -------------------------------------------------
+*/
+@media screen and (min-width: 1025px) {
+  /* Already optimized for desktop */
+  .section {
+    padding: 5rem 2rem;
+  }
+
+  .shape-box {
+    width: 400px;
+    height: 400px;
+  }
+
+  .box-wrapper {
+    gap: 2rem;
+  }
+}
+
+/* 
+  ADDITIONAL TOUCH-FRIENDLY OPTIMIZATIONS
+  -------------------------------------------------
+*/
+
+/* Ensure all interactive elements have minimum 44px touch target */
+@media screen and (max-width: 768px) {
+  button,
+  a,
+  [role="button"],
+  .btn,
+  .btn-outline,
+  .read-more-btn,
+  .nav-link {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Improve form inputs for mobile */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+  }
+
+  /* Improve tap target spacing */
+  .nav-link {
+    padding: 0.75rem 1rem;
+    margin: 0.25rem;
+  }
+
+  /* Reduce animation complexity on mobile for better performance */
+  * {
+    transition-duration: 0.15s !important;
+  }
+
+  /* Prevent zoom on input focus on mobile */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    font-size: 16px;
+  }
+}
+
+/* 
+  PRINT STYLES
+  -------------------------------------------------
+*/
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .navbar,
+  .btn,
+  .nav-link,
+  footer {
+    display: none;
+  }
+
+  .section {
+    page-break-inside: avoid;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* 
+  FINAL POLISH & SMOOTHING
+  -------------------------------------------------
+*/
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize transition timing */
+* {
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Remove outline delays for better UX */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline-offset: 2px;
+}
+
+/* Ensure consistent spacing around major sections */
+section {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Body and page wrapper consistency */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+}
+
+.page-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Container padding consistency */
+.container {
+  max-width: 1400px !important;
+  padding-left: clamp(1rem, 3vw, 2rem) !important;
+  padding-right: clamp(1rem, 3vw, 2rem) !important;
+}
+
+/* Ensure buttons are always accessible */
+button,
+a[role="button"],
+.btn {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Video optimization */
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent overflow on mobile */
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    overflow-x: hidden;
+  }
+
+  .container {
+    overflow-x: hidden;
+  }
 }
 
