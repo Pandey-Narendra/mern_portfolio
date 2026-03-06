@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Modern Testimonials</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
+<style>
+
+/* SECTION */
+
+.testimonial-section{
+padding:120px 20px;
+background:#0f0f0f;
+text-align:center;
+}
+
+.testimonial-title{
+font-size:38px;
+color:#f7c873;
+margin-bottom:70px;
+}
+
+/* SWIPER */
+
+.testimonial-slider{
+max-width:900px;
+margin:auto;
+position:relative;
+}
+
+/* CARD */
+
+.testimonial-card{
+background:rgba(255,255,255,0.05);
+border-radius:16px;
+padding:60px 50px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.08);
+position:relative;
+transition:0.4s;
+}
+
+/* Gradient border */
+
+.testimonial-card::before{
+content:"";
+position:absolute;
+inset:0;
+padding:2px;
+border-radius:16px;
+background:linear-gradient(120deg,#f7c873,transparent);
+-webkit-mask:
+linear-gradient(#000 0 0) content-box,
+linear-gradient(#000 0 0);
+mask-composite:exclude;
+opacity:.4;
+}
+
+/* Hover */
+
+.testimonial-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 40px rgba(247,200,115,.3);
+}
+
+/* Quote */
+
+.quote-icon{
+font-size:60px;
+color:#f7c873;
+opacity:.15;
+position:absolute;
+top:25px;
+left:30px;
+animation:float 6s infinite ease-in-out;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+}
+
+/* TEXT */
+
+.testimonial-text{
+font-size:18px;
+line-height:1.7;
+color:#ddd;
+margin-bottom:35px;
+}
+
+/* AUTHOR */
+
+.author{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
+}
+
+.author img{
+width:60px;
+height:60px;
+border-radius:50%;
+border:3px solid #f7c873;
+object-fit:cover;
+}
+
+.author-name{
+font-weight:600;
+font-size:18px;
+color:#f7c873;
+}
+
+.author-role{
+font-size:14px;
+color:#aaa;
+}
+
+/* NAVIGATION BUTTONS */
+
+.swiper-button-next,
+.swiper-button-prev{
+
+width:50px;
+height:50px;
+border-radius:50%;
+
+background:rgba(255,255,255,0.05);
+
+border:1px solid rgba(255,255,255,0.1);
+
+color:#f7c873;
+
+transition:0.3s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover{
+
+background:#f7c873;
+color:#111;
+box-shadow:0 0 20px rgba(247,200,115,.5);
+
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after{
+font-size:18px;
+font-weight:bold;
+}
+
+/* Pagination */
+
+.swiper-pagination-bullet{
+background:#f7c873;
+opacity:.4;
+}
+
+.swiper-pagination-bullet-active{
+opacity:1;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.testimonial-card{
+padding:40px 30px;
+}
+
+.testimonial-text{
+font-size:16px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="testimonial-section">
+
+<h2 class="testimonial-title">Client Testimonials</h2>
+
+<div class="swiper testimonial-slider">
+
+<div class="swiper-wrapper">
+
+<!-- TESTIMONIAL -->
+
+<div class="swiper-slide">
+
+<div class="testimonial-card">
+
+<div class="quote-icon">“</div>
+
+<p class="testimonial-text">
+Narendra delivered a highly scalable backend architecture that improved our API performance drastically.
+</p>
+
+<div class="author">
+
+<img src="https://i.pravatar.cc/150?img=12">
+
+<div>
+<div class="author-name">John Smith</div>
+<div class="author-role">CTO • TechCorp</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- TESTIMONIAL -->
+
+<div class="swiper-slide">
+
+<div class="testimonial-card">
+
+<div class="quote-icon">“</div>
+
+<p class="testimonial-text">
+Extremely professional developer with deep knowledge of system design and backend architecture.
+</p>
+
+<div class="author">
+
+<img src="https://i.pravatar.cc/150?img=32">
+
+<div>
+<div class="author-name">Sarah Lee</div>
+<div class="author-role">Product Manager</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- TESTIMONIAL -->
+
+<div class="swiper-slide">
+
+<div class="testimonial-card">
+
+<div class="quote-icon">“</div>
+
+<p class="testimonial-text">
+Our infrastructure stability improved significantly after working together.
+</p>
+
+<div class="author">
+
+<img src="https://i.pravatar.cc/150?img=45">
+
+<div>
+<div class="author-name">Michael Chen</div>
+<div class="author-role">Engineering Lead</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- NAVIGATION -->
+
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
+
+<div class="swiper-pagination"></div>
+
+</div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<script>
+
+new Swiper('.testimonial-slider',{
+
+loop:true,
+spaceBetween:30,
+centeredSlides:true,
+
+autoplay:{
+delay:4500,
+disableOnInteraction:false
+},
+
+navigation:{
+nextEl:'.swiper-button-next',
+prevEl:'.swiper-button-prev'
+},
+
+pagination:{
+el:'.swiper-pagination',
+clickable:true
+},
+
+breakpoints:{
+
+0:{slidesPerView:1},
+768:{slidesPerView:1},
+1024:{slidesPerView:1}
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

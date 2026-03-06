@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Narendra Pandey | Software Developer</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/43e5b1ec09.js"></script>
+
+<link rel="stylesheet" href="css/justin-red.css">
+<link rel="stylesheet" href="css/custom.css">
+
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<style>
+
+/* SCROLL BAR */
+
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-thumb{background:#f7c873}
+
+/* NAVBAR */
+
+.navbar-custom{
+background:transparent;
+transition:.3s ease;
+}
+
+.navbar-custom.scrolled{
+background:#121212;
+box-shadow:0 5px 20px rgba(0,0,0,.5);
+}
+
+.nav-link.active{
+color:#f7c873 !important;
+}
+
+/* HERO */
+
+.section-home{
+height:100vh;
+background:url("images/banner.jpg") center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+}
+
+.overlay{
+background:rgba(0,0,0,.7);
+position:absolute;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.overlay-wrap{
+z-index:2;
+}
+
+.hero-title{
+font-size:clamp(2rem,5vw,3.5rem);
+color:#f7c873;
+}
+
+.hero-sub{
+font-size:1.2rem;
+opacity:.8;
+}
+
+/* SERVICES */
+
+.shape-box{
+transition:.4s ease;
+}
+
+.shape-box:hover{
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 15px 40px rgba(247,200,115,.3);
+}
+
+/* FOOTER */
+
+footer{
+background:#0b0b0c;
+padding:30px;
+text-align:center;
+color:#aaa;
+border-top:1px solid #222;
+}
+
+/* SCROLL PROGRESS */
+
+#progress{
+position:fixed;
+top:0;
+left:0;
+height:3px;
+background:#f7c873;
+width:0%;
+z-index:9999;
+}
+
+/* ABOUT IMAGE */
+
+.img-thumbnail{
+transition:.4s ease;
+}
+
+.img-thumbnail:hover{
+transform:scale(1.04);
+box-shadow:0 0 25px rgba(247,200,115,.4);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="progress"></div>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand text-warning">NARENDRA</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="nav">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#services">Skills</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section id="home" class="section-home">
+
+<div class="overlay">
+
+<div class="overlay-wrap">
+
+<span>Hello I am</span>
+
+<h1 class="hero-title">Narendra Pandey</h1>
+
+<h4 class="hero-sub">
+
+<span id="typing"></span>
+
+</h4>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section py-5" id="about">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-md-7">
+
+<h2>About Me</h2>
+
+<p class="mt-4">
+
+Experienced software developer specializing in scalable web applications, API architecture, and backend systems.
+
+</p>
+
+</div>
+
+<div class="col-md-5">
+
+<img src="images/profile.jfif" class="img-fluid img-thumbnail">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="section py-5" id="services">
+
+<div class="container">
+
+<div class="section-head text-center mb-5">
+
+<span>WHAT I DO</span>
+
+<h2>Skills</h2>
+
+</div>
+
+<div class="row">
+
+<div class="col-lg-4">
+
+<div class="card p-4">
+
+<h3>Software Development</h3>
+
+<p>MERN stack, Laravel, REST APIs and scalable backend systems.</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card p-4">
+
+<h3>Problem Solving</h3>
+
+<p>DSA, algorithm design and competitive programming.</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card p-4">
+
+<h3>Content Creation</h3>
+
+<p>35K+ YouTube community and gaming content creation.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 Narendra Pandey</p>
+
+<p>Software Developer • Backend Engineer</p>
+
+</footer>
+
+<script>
+
+/* NAVBAR SCROLL */
+
+window.addEventListener("scroll",()=>{
+
+const nav=document.querySelector(".navbar");
+
+if(window.scrollY>80){
+
+nav.classList.add("scrolled");
+
+}else{
+
+nav.classList.remove("scrolled");
+
+}
+
+/* progress bar */
+
+let scroll=(window.scrollY)/(document.body.scrollHeight-window.innerHeight);
+
+document.getElementById("progress").style.width=(scroll*100)+"%";
+
+});
+
+/* NAV ACTIVE */
+
+const sections=document.querySelectorAll("section");
+
+const links=document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(sec=>{
+
+if(pageYOffset>=sec.offsetTop-200){
+
+current=sec.id;
+
+}
+
+});
+
+links.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.href.includes(current)){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+/* TYPING EFFECT */
+
+const words=["Software Developer","Backend Engineer","Programmer","YouTuber"];
+
+let i=0,j=0,current="",isDeleting=false;
+
+function type(){
+
+current=words[i];
+
+document.getElementById("typing").textContent=current.substring(0,j);
+
+if(!isDeleting && j<current.length){
+
+j++;
+
+setTimeout(type,80);
+
+}
+
+else if(isDeleting && j>0){
+
+j--;
+
+setTimeout(type,40);
+
+}
+
+else{
+
+isDeleting=!isDeleting;
+
+if(!isDeleting) i=(i+1)%words.length;
+
+setTimeout(type,800);
+
+}
+
+}
+
+type();
+
+/* SCROLL REVEAL */
+
+ScrollReveal().reveal('.card',{
+
+distance:'50px',
+
+origin:'bottom',
+
+duration:1000,
+
+interval:200
+
+});
+
+</script>
+
+</body>
+</html>

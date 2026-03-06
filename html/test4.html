@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Skills Showcase</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/justin-red.css">
+<link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="css/navbar.css">
+
+<style>
+
+.skill-section{
+width:100%;
+height:600px;
+position:relative;
+overflow:hidden;
+}
+
+/* FILTER BUTTONS */
+
+.skill-filters{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+margin-bottom:25px;
+}
+
+.skill-btn{
+padding:6px 18px;
+border:1px solid var(--border-color);
+background:var(--bg-card);
+color:var(--text-color);
+border-radius:6px;
+cursor:pointer;
+transition:.3s;
+font-size:14px;
+}
+
+.skill-btn:hover{
+border-color:var(--accent);
+}
+
+.skill-btn.active{
+background:var(--accent);
+color:#111;
+}
+
+/* CANVAS */
+
+canvas{
+display:block;
+width:100%;
+height:100%;
+}
+
+/* Skill modal */
+
+.skill-modal{
+position:absolute;
+background:var(--bg-card);
+border:1px solid var(--border-color);
+padding:18px 22px;
+border-radius:10px;
+min-width:200px;
+pointer-events:none;
+transform:translate(-50%,-120%) scale(.8);
+opacity:0;
+transition:.25s;
+box-shadow:0 10px 30px rgba(0,0,0,.6);
+}
+
+.skill-modal.show{
+opacity:1;
+transform:translate(-50%,-120%) scale(1);
+}
+
+.skill-title{
+font-weight:600;
+font-size:16px;
+margin-bottom:10px;
+color:var(--accent);
+}
+
+.skill-bar{
+width:100%;
+height:8px;
+background:#222;
+border-radius:10px;
+overflow:hidden;
+}
+
+.skill-bar span{
+display:block;
+height:100%;
+background:linear-gradient(90deg,#f7c873,#ff9f1c);
+width:0%;
+transition:width .6s ease;
+}
+
+.skill-percent{
+font-size:12px;
+margin-top:6px;
+color:var(--text-muted);
+}
+
+@media(max-width:768px){
+.skill-section{
+height:400px;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="section section-light section-skills">
+
+<div class="container-fluid">
+
+<div class="section-head text-center">
+<span>WHAT I KNOW</span>
+<h2>My Technical Skills</h2>
+</div>
+
+<!-- FILTER BUTTONS -->
+
+<div class="skill-filters">
+
+<button class="skill-btn active" data-filter="all">All</button>
+<button class="skill-btn" data-filter="frontend">Frontend</button>
+<button class="skill-btn" data-filter="backend">Backend</button>
+<button class="skill-btn" data-filter="tools">Tools</button>
+
+</div>
+
+<div class="skill-section">
+
+<canvas id="network"></canvas>
+
+<div id="skillModal" class="skill-modal">
+
+<div class="skill-title"></div>
+
+<div class="skill-bar">
+<span></span>
+</div>
+
+<div class="skill-percent"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const canvas=document.getElementById("network")
+const ctx=canvas.getContext("2d")
+
+const modal=document.getElementById("skillModal")
+
+const modalTitle=modal.querySelector(".skill-title")
+const modalBar=modal.querySelector(".skill-bar span")
+const modalPercent=modal.querySelector(".skill-percent")
+
+const BOUNDS={width:0,height:0}
+
+function resizeCanvas(){
+
+canvas.width=canvas.clientWidth
+canvas.height=canvas.clientHeight
+
+BOUNDS.width=canvas.width
+BOUNDS.height=canvas.height
+
+}
+
+resizeCanvas()
+
+window.addEventListener("resize",resizeCanvas)
+
+let hoveredNode=null
+
+class Node{
+
+constructor(x,y,radius,color,text,logoUrl,level){
+
+this.x=x
+this.y=y
+this.targetX=x
+this.targetY=y
+
+this.radius=radius
+this.color=color
+this.text=text
+this.level=level
+
+this.logo=new Image()
+this.logo.src=logoUrl
+
+this.dx=(Math.random()-.5)*1
+this.dy=(Math.random()-.5)*1
+
+}
+
+draw(){
+
+ctx.beginPath()
+ctx.arc(this.x,this.y,this.radius,0,Math.PI*2)
+
+ctx.fillStyle=this.color
+ctx.shadowColor=this.color
+ctx.shadowBlur=15
+ctx.fill()
+ctx.closePath()
+
+ctx.shadowBlur=0
+
+if(this.logo.complete){
+
+ctx.drawImage(this.logo,this.x-12,this.y-12,24,24)
+
+}
+
+ctx.fillStyle="#fff"
+ctx.font="14px Poppins"
+ctx.textAlign="left"
+ctx.fillText(this.text,this.x+this.radius+12,this.y+4)
+
+}
+
+update(){
+
+if(hoveredNode===this) return
+
+this.targetX+=this.dx
+this.targetY+=this.dy
+
+if(this.targetX>BOUNDS.width-this.radius||this.targetX<this.radius)this.dx*=-1
+if(this.targetY>BOUNDS.height-this.radius||this.targetY<this.radius)this.dy*=-1
+
+this.x+=(this.targetX-this.x)*.1
+this.y+=(this.targetY-this.y)*.1
+
+this.draw()
+
+}
+
+}
+
+const logoBase="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/"
+
+const skills=[
+
+{color:"#ff6f00",text:"HTML5",logo:"html5.svg",level:95,cat:"frontend"},
+{color:"#2965f1",text:"CSS3",logo:"css3.svg",level:92,cat:"frontend"},
+{color:"#f7df1e",text:"JavaScript",logo:"javascript.svg",level:90,cat:"frontend"},
+{color:"#61dafb",text:"React",logo:"react.svg",level:85,cat:"frontend"},
+
+{color:"#777bb4",text:"PHP",logo:"php.svg",level:88,cat:"backend"},
+{color:"#00758f",text:"MySQL",logo:"mysql.svg",level:86,cat:"backend"},
+{color:"#f29111",text:"Laravel",logo:"laravel.svg",level:90,cat:"backend"},
+
+{color:"#f05033",text:"Git",logo:"git.svg",level:92,cat:"tools"},
+{color:"#ffffff",text:"GitHub",logo:"github.svg",level:94,cat:"tools"},
+{color:"#a259ff",text:"Figma",logo:"figma.svg",level:75,cat:"tools"}
+
+]
+
+let nodes=[]
+let activeFilter="all"
+
+function createNodes(){
+
+nodes=[]
+
+const filtered=activeFilter==="all"
+?skills
+:skills.filter(s=>s.cat===activeFilter)
+
+const centerX=BOUNDS.width/2
+const centerY=BOUNDS.height/2
+
+const spread=Math.min(BOUNDS.width,BOUNDS.height)/2.2
+
+filtered.forEach((s,i)=>{
+
+const angle=(i/filtered.length)*Math.PI*2
+
+const x=centerX+Math.cos(angle)*spread
+const y=centerY+Math.sin(angle)*spread
+
+nodes.push(new Node(x,y,28,s.color,s.text,logoBase+s.logo,s.level))
+
+})
+
+}
+
+createNodes()
+
+/* FILTER BUTTONS */
+
+document.querySelectorAll(".skill-btn").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+document.querySelector(".skill-btn.active").classList.remove("active")
+
+btn.classList.add("active")
+
+activeFilter=btn.dataset.filter
+
+createNodes()
+
+})
+
+})
+
+/* HOVER */
+
+canvas.addEventListener("mousemove",e=>{
+
+const rect=canvas.getBoundingClientRect()
+
+const mx=e.clientX-rect.left
+const my=e.clientY-rect.top
+
+hoveredNode=null
+
+nodes.forEach(node=>{
+
+const dist=Math.hypot(mx-node.x,my-node.y)
+
+if(dist<node.radius+8){
+
+hoveredNode=node
+
+modal.classList.add("show")
+
+modal.style.left=node.x+"px"
+modal.style.top=node.y+"px"
+
+modalTitle.textContent=node.text
+
+modalBar.style.width=node.level+"%"
+
+modalPercent.textContent=node.level+"% proficiency"
+
+}
+
+})
+
+if(!hoveredNode){
+
+modal.classList.remove("show")
+
+}
+
+})
+
+/* CONNECTIONS */
+
+function connectNodes(){
+
+for(let i=0;i<nodes.length;i++){
+
+for(let j=i+1;j<nodes.length;j++){
+
+const dx=nodes[i].x-nodes[j].x
+const dy=nodes[i].y-nodes[j].y
+
+const dist=Math.sqrt(dx*dx+dy*dy)
+
+if(dist<220){
+
+ctx.beginPath()
+
+ctx.strokeStyle="rgba(255,255,255,0.08)"
+ctx.lineWidth=1
+
+ctx.moveTo(nodes[i].x,nodes[i].y)
+ctx.lineTo(nodes[j].x,nodes[j].y)
+
+ctx.stroke()
+
+}
+
+}
+
+}
+
+}
+
+/* ANIMATION */
+
+function animate(){
+
+ctx.clearRect(0,0,BOUNDS.width,BOUNDS.height)
+
+connectNodes()
+
+nodes.forEach(node=>node.update())
+
+requestAnimationFrame(animate)
+
+}
+
+animate()
+
+</script>
+
+</body>
+</html>
