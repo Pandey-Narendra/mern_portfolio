@@ -1,23 +1,46 @@
-$(document).ready(function(){
+new Swiper('.testimonial-slider', {
 
-$('.testimonial-carousel').owlCarousel({
-animateOut:'slideOutDown',
-animateIn:'zoomIn',
-loop:true,
-margin:0,
-nav:true,
-smartSpeed:300,
-autoplay:7000,
-navText:[
-'<span class="arrow-left"></span>',
-'<span class="arrow-right"></span>'
-],
-responsive:{
-0:{items:1},
-600:{items:1},
-800:{items:1},
-1024:{items:1}
-}
-});
+   loop: true,
+   spaceBetween: 30,
+   centeredSlides: true,
+
+   autoplay: {
+      delay: 4500,
+      disableOnInteraction: false
+   }
+
+   ,
+
+   navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+   }
+
+   ,
+
+   pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+   }
+
+   ,
+
+   breakpoints: {
+
+      0: {
+         slidesPerView: 1
+      }
+
+      ,
+      768: {
+         slidesPerView: 1
+      }
+
+      ,
+      1024: {
+         slidesPerView: 1
+      }
+
+   }
 
 });

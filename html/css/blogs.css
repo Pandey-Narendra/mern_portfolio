@@ -1,246 +1,165 @@
+/* ================= THEME ================= */
 
-nav-blog {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: clamp(2rem, 8vw, 4rem);
-    padding: clamp(2rem, 5vw, 4rem);
-    min-height: 50vh;
+:root{
+--bg-dark:#0b0b0c;
+--accent:#f7c873;
+--text:#e2e2e2;
+--border:#333;
 }
 
-nav-blog > a {
-    color: var(--accent);
-    font-family: "Open Sans", sans-serif;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 700;
-    text-decoration: none;
-    position: relative;
-    transition: transform 300ms ease, color 300ms ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+/* ================= BODY ================= */
+
+body{
+margin:0;
+background:var(--bg-dark);
+color:var(--text);
+font-family:'Inter',sans-serif;
 }
 
-nav-blog > a:hover {
-    color: #e5b45f;
-    transform: translateY(-8px);
+/* ================= SECTION ================= */
+
+.section-blogs{
+padding:120px 0;
+background:var(--bg-dark);
+overflow:hidden;
 }
 
-nav-blog > a > span {
-    display: block;
-    border-bottom: 2px solid transparent;
-    border-top: 2px solid transparent;
-    position: relative;
-    z-index: 2;
-    padding: 0.5rem 0;
-    transition: border-color 300ms ease;
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
+/* ================= HEADER ================= */
+
+.section-head{
+text-align:center;
 }
 
-nav-blog > a:hover > span {  
-    border-top-color: var(--accent);
-    border-bottom-color: var(--accent);
+.section-head span{
+color:var(--accent);
+letter-spacing:2px;
+font-size:14px;
+text-transform:uppercase;
 }
 
-nav-blog > a > img {
-    position: relative;
-    opacity: 1;
-    transform: scale(1);
-    transition: transform 300ms ease, box-shadow 300ms ease;
-    pointer-events: auto;
-    width: clamp(90vw - 2rem, 90vw, 600px);
-    height: auto;
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+.section-head h2{
+font-size:40px;
+margin-top:10px;
 }
 
-nav-blog > a:hover > img {
-    transform: scale(1.02);
-    box-shadow: 0 15px 40px rgba(247, 200, 115, 0.3);
+/* ================= BLOG LIST ================= */
+
+.nav-blog{
+display:flex;
+flex-direction:column;
+gap:35px;
+margin-top:90px;
+position:relative;
 }
 
-/* -- YouTube Link Styles -- */
+/* ================= BLOG LINKS ================= */
 
-body.menu-toggled > .meta-link > span {
-    color: var(--text-color);
+.nav-blog a{
+
+color:rgba(255,255,255,0.18);
+
+font-size:clamp(2.5rem,6vw,6rem);
+
+font-weight:300;
+
+text-decoration:none;
+
+position:relative;
+
+display:inline-block;
+
+transition:.35s ease;
+
+letter-spacing:-1px;
+
 }
 
-#source-link {
-    bottom: 100px;
+/* hover text */
+
+.nav-blog a:hover{
+color:#fff;
+text-shadow:0 0 10px rgba(247,200,115,0.2);
 }
 
-#source-link > i {
-    color: rgb(94, 106, 210);
+/* underline effect */
+
+.nav-blog span{
+
+display:block;
+
+padding:10px 0;
+
+border-top:1px solid transparent;
+border-bottom:1px solid transparent;
+
+position:relative;
+
+z-index:2;
+
+transition:.3s;
+
 }
 
-#yt-link > i {
-    color: rgb(239, 83, 80);
+.nav-blog a:hover span{
+border-color:var(--accent);
 }
 
-.meta-link {
-    align-items: center;
-    backdrop-filter: blur(8px);
-    background-color: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(247, 200, 115, 0.2);
-    border-radius: 2rem;
-    bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    cursor: pointer;  
-    display: inline-flex;
-    gap: 0.6rem;
-    left: 20px;
-    padding: 0.6rem 1.2rem;
-    position: fixed;
-    text-decoration: none;
-    transition: background-color 300ms ease, border-color 300ms ease, transform 300ms ease;
-    z-index: 10000;
-    min-height: 44px;
+/* ================= HOVER IMAGE ================= */
+
+.nav-blog img{
+
+position:absolute;
+
+pointer-events:none;
+
+opacity:0;
+
+transform:translate(-50%,-50%) scale(.75);
+
+transition:
+opacity .25s ease,
+transform .3s ease;
+
+width:min(38vw,420px);
+
+border-radius:10px;
+
+box-shadow:0 25px 60px rgba(0,0,0,.7);
+
+z-index:1;
+
 }
 
-.meta-link:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(247, 200, 115, 0.4);
-    transform: translateY(-2px);
+/* show image */
+
+.nav-blog a:hover img{
+
+opacity:1;
+
+transform:translate(-50%,-50%) scale(1);
+
 }
 
-.meta-link > i, .meta-link > span {
-    height: 18px;
-    line-height: 18px;
+/* performance */
+
+.nav-blog img{
+will-change:transform,left,top;
 }
 
-.meta-link > span {
-    color: var(--text-color);
-    font-family: "Rubik", sans-serif;
-    font-weight: 500;
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.section-head h2{
+font-size:28px;
 }
 
-/* 
-  RESPONSIVE BLOGS SECTION
-  -------------------------------------------------
-*/
-
-/* Mobile (up to 480px) */
-@media screen and (max-width: 480px) {
-    nav-blog {
-        margin-top: clamp(1rem, 5vw, 2rem);
-        padding: 1.5rem 1rem;
-        min-height: 45vh;
-    }
-
-    nav-blog > a {
-        font-size: clamp(1.75rem, 6vw, 2.5rem);
-        margin-bottom: 1rem;
-    }
-
-    nav-blog > a > span {
-        font-size: 0.9rem;
-    }
-
-    nav-blog > a > img {
-        width: calc(100vw - 2rem);
-        border-radius: 0.75rem;
-    }
-
-    .meta-link {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.75rem;
-        bottom: 10px;
-        left: 10px;
-    }
-
-    .meta-link > i, .meta-link > span {
-        height: 14px;
-        line-height: 14px;
-    }
+.nav-blog a{
+font-size:2rem;
 }
 
-/* Tablets (481px to 768px) */
-@media screen and (min-width: 481px) and (max-width: 768px) {
-    nav-blog {
-        margin-top: clamp(2rem, 6vw, 3rem);
-        padding: clamp(2rem, 4vw, 3rem);
-        min-height: 50vh;
-    }
-
-    nav-blog > a {
-        font-size: clamp(2.5rem, 7vw, 3.5rem);
-        margin-bottom: 1.5rem;
-    }
-
-    nav-blog > a > span {
-        font-size: 1rem;
-    }
-
-    nav-blog > a > img {
-        width: min(80vw, 500px);
-    }
-
-    .meta-link {
-        padding: 0.6rem 1rem;
-        font-size: 0.8rem;
-        bottom: 15px;
-        left: 15px;
-    }
+.nav-blog img{
+display:none;
 }
 
-/* Small Desktops (769px to 1024px) */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-    nav-blog {
-        margin-top: clamp(3rem, 6vw, 4rem);
-        padding: clamp(3rem, 5vw, 4rem);
-        min-height: 60vh;
-    }
-
-    nav-blog > a {
-        font-size: clamp(3rem, 7vw, 4rem);
-        margin-bottom: 2rem;
-    }
-
-    nav-blog > a > span {
-        font-size: 1.1rem;
-    }
-
-    nav-blog > a > img {
-        width: min(70vw, 550px);
-    }
-
-    .meta-link {
-        padding: 0.65rem 1.2rem;
-        font-size: 0.85rem;
-        bottom: 20px;
-        left: 20px;
-    }
-}
-
-/* Large Desktops (1025px and above) */
-@media screen and (min-width: 1025px) {
-    nav-blog {
-        margin-top: clamp(4rem, 6vw, 5rem);
-        padding: clamp(4rem, 5vw, 5rem);
-        min-height: 70vh;
-    }
-
-    nav-blog > a {
-        font-size: clamp(4rem, 8vw, 5rem);
-        margin-bottom: 2.5rem;
-        gap: 1.5rem;
-    }
-
-    nav-blog > a > span {
-        font-size: 1.2rem;
-    }
-
-    nav-blog > a > img {
-        width: min(60vw, 600px);
-    }
-
-    .meta-link {
-        padding: 0.7rem 1.4rem;
-        font-size: 0.9rem;
-        bottom: 30px;
-        left: 30px;
-    }
 }

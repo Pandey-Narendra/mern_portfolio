@@ -1,306 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Hey, It's Me</title>
+<title>Blog Section</title>
 
-<link rel="shortcut icon" href="github/GitHub-Mark-Light-64px.png">
-
-<link rel="stylesheet" href="css/vendor.css">
-<link rel="stylesheet" href="css/justin-red.css">
-<link rel="stylesheet" href="css/custom.css">
-<link rel="stylesheet" href="css/navbar.css">
-
-<script src="https://kit.fontawesome.com/43e5b1ec09.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* ============================= */
-/* PROJECT SECTION */
-/* ============================= */
+/* ================= THEME ================= */
 
-#projects-section{
+:root{
+--bg-dark:#0b0b0c;
+--accent:#f7c873;
+--text:#e2e2e2;
+--border:#333;
+}
+
+/* ================= BODY ================= */
+
+body{
+margin:0;
 background:var(--bg-dark);
-color:var(--text-color);
-padding:5rem 1rem;
+color:var(--text);
+font-family:'Inter',sans-serif;
+}
+
+/* ================= SECTION ================= */
+
+.section-blogs{
+padding:120px 0;
+background:var(--bg-dark);
+overflow:hidden;
+}
+
+/* ================= HEADER ================= */
+
+.section-head{
 text-align:center;
 }
 
 .section-head span{
-display:block;
-font-size:1rem;
-letter-spacing:2px;
-text-transform:uppercase;
 color:var(--accent);
+letter-spacing:2px;
+font-size:14px;
+text-transform:uppercase;
 }
 
 .section-head h2{
-font-size:2.5rem;
-margin-top:.5rem;
-color:var(--accent);
+font-size:40px;
+margin-top:10px;
 }
 
-/* ============================= */
-/* FILTER BUTTONS */
-/* ============================= */
+/* ================= BLOG LIST ================= */
 
-.project-filters{
+.nav-blog{
 display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-margin:40px 0;
+flex-direction:column;
+gap:35px;
+margin-top:90px;
+position:relative;
 }
 
-.filter-btn{
-padding:8px 18px;
-border:1px solid var(--border-color);
-background:var(--bg-card);
-color:var(--text-color);
-border-radius:6px;
-cursor:pointer;
+/* ================= BLOG LINKS ================= */
+
+.nav-blog a{
+
+color:rgba(255,255,255,0.18);
+
+font-size:clamp(2.5rem,6vw,6rem);
+
+font-weight:300;
+
+text-decoration:none;
+
+position:relative;
+
+display:inline-block;
+
+transition:.35s ease;
+
+letter-spacing:-1px;
+
+}
+
+/* hover text */
+
+.nav-blog a:hover{
+color:#fff;
+text-shadow:0 0 10px rgba(247,200,115,0.2);
+}
+
+/* underline effect */
+
+.nav-blog span{
+
+display:block;
+
+padding:10px 0;
+
+border-top:1px solid transparent;
+border-bottom:1px solid transparent;
+
+position:relative;
+
+z-index:2;
+
 transition:.3s;
+
 }
 
-.filter-btn:hover{
+.nav-blog a:hover span{
 border-color:var(--accent);
 }
 
-.filter-btn.active{
-background:var(--accent);
-color:#111;
-}
+/* ================= HOVER IMAGE ================= */
 
-/* ============================= */
-/* GRID */
-/* ============================= */
+.nav-blog img{
 
-.projects-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(340px,380px));
-gap:2rem;
-max-width:1200px;
-margin:auto;
-justify-content:center;
-}
+position:absolute;
 
-/* ============================= */
-/* CARD */
-/* ============================= */
+pointer-events:none;
 
-.project-card{
-background:var(--bg-card);
-border:1px solid var(--border-color);
-border-radius:1rem;
-overflow:hidden;
+opacity:0;
 
-box-shadow:0 5px 15px rgba(0,0,0,.6);
-
-display:flex;
-flex-direction:column;
-
-width:100%;
-max-width:380px;
-margin:auto;
+transform:translate(-50%,-50%) scale(.75);
 
 transition:
-transform .45s cubic-bezier(.25,.8,.25,1),
-opacity .35s ease;
+opacity .25s ease,
+transform .3s ease;
 
-opacity:1;
-transform:translateY(0);
-}
+width:min(38vw,420px);
 
-.project-card.hide{
-opacity:0;
-transform:scale(.85) translateY(40px);
-pointer-events:none;
-}
-
-.project-card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 10px #ebd4aa;
-}
-
-/* ============================= */
-/* IMAGE */
-/* ============================= */
-
-.project-image{
-width:100%;
-height:220px;
-object-fit:cover;
-border-bottom:1px solid var(--border-color);
-}
-
-/* ============================= */
-/* CONTENT */
-/* ============================= */
-
-.project-content{
-padding:1.8rem;
-display:flex;
-flex-direction:column;
-flex-grow:1;
-text-align:left;
-position:relative;
-overflow:hidden;
-}
-
-.project-content::after{
-content:"";
-position:absolute;
-top:var(--y,50%);
-left:var(--x,50%);
-width:0;
-height:0;
-background:radial-gradient(circle,rgba(247,200,115,.2),transparent 80%);
-transform:translate(-50%,-50%);
-transition:.4s;
-pointer-events:none;
-}
-
-.project-content.hovered::after{
-width:200%;
-height:200%;
-}
-
-/* TEXT */
-
-.project-title{
-color:var(--accent);
-margin-bottom:.6rem;
-font-size:1.6rem;
-}
-
-.project-description{
-margin-bottom:1rem;
-line-height:1.6;
-}
-
-/* TECH TAGS */
-
-.tech-stack{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-margin-bottom:1rem;
-}
-
-.tech-tag{
-padding:5px 10px;
-border:1px solid var(--border-color);
-border-radius:6px;
-font-size:.85rem;
-color:var(--accent);
-}
-
-/* BUTTON */
-
-.project-link{
-margin-top:auto;
-display:inline-block;
-padding:8px 16px;
-background:var(--accent);
-color:#111;
-border-radius:6px;
-text-decoration:none;
-font-weight:600;
-}
-
-.project-link:hover{
-background:#e5b45f;
-}
-
-/* ============================= */
-/* MODAL */
-/* ============================= */
-
-.project-modal{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.85);
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-opacity:0;
-visibility:hidden;
-transition:opacity .3s ease;
-
-z-index:9999;
-}
-
-.project-modal.active{
-opacity:1;
-visibility:visible;
-}
-
-.modal-content{
-background:var(--bg-card);
-padding:30px;
 border-radius:10px;
-max-width:700px;
-width:90%;
-text-align:center;
-position:relative;
+
+box-shadow:0 25px 60px rgba(0,0,0,.7);
+
+z-index:1;
+
 }
 
-/* gallery */
+/* show image */
 
-.modal-gallery{
-margin-bottom:20px;
-}
+.nav-blog a:hover img{
 
-.modal-main-img{
-width:100%;
-max-height:350px;
-object-fit:cover;
-border-radius:8px;
-margin-bottom:12px;
-}
-
-.modal-thumbnails{
-display:flex;
-gap:10px;
-justify-content:center;
-flex-wrap:wrap;
-}
-
-.modal-thumbnails img{
-width:70px;
-height:50px;
-object-fit:cover;
-border-radius:4px;
-cursor:pointer;
-opacity:.7;
-border:1px solid var(--border-color);
-}
-
-.modal-thumbnails img:hover{
 opacity:1;
-border-color:var(--accent);
+
+transform:translate(-50%,-50%) scale(1);
+
 }
 
-.modal-thumbnails img.active{
-opacity:1;
-border-color:var(--accent);
+/* performance */
+
+.nav-blog img{
+will-change:transform,left,top;
 }
 
-.modal-close{
-position:absolute;
-top:15px;
-right:20px;
-font-size:30px;
-cursor:pointer;
-color:white;
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.section-head h2{
+font-size:28px;
+}
+
+.nav-blog a{
+font-size:2rem;
+}
+
+.nav-blog img{
+display:none;
+}
+
 }
 
 </style>
@@ -309,52 +184,48 @@ color:white;
 
 <body>
 
-<section id="projects-section">
+<section class="section section-blogs" id="blogs">
 
 <div class="container">
 
 <div class="section-head">
-<span>Achievements</span>
-<h2>My Projects</h2>
-</div>
 
-<div class="project-filters">
-
-<button class="filter-btn active" data-filter="all">All</button>
-<button class="filter-btn" data-filter="frontend">Frontend</button>
-<button class="filter-btn" data-filter="backend">Backend</button>
-<button class="filter-btn" data-filter="design">Design</button>
+<span>What I Write</span>
+<h2>Engineering Blogs</h2>
 
 </div>
 
-<div class="projects-grid">
+<div class="nav-blog" id="blogNav">
 
-<!-- PROJECT -->
+<a href="#">
+<span>System Design</span>
+<img src="https://images.unsplash.com/photo-1660167941111-f7ccce818728?auto=format&fit=crop&w=800&q=60">
+</a>
 
-<div class="project-card"
-data-category="frontend"
-data-images="./images/p1.jpg,./images/p2.jpg,./images/p3.jpg">
+<a href="#">
+<span>Backend Architecture</span>
+<img src="https://images.unsplash.com/photo-1660070918769-f34c724cfe43?auto=format&fit=crop&w=800&q=60">
+</a>
 
-<img src="./images/p1.jpg" class="project-image">
+<a href="#">
+<span>Laravel Scaling</span>
+<img src="https://images.unsplash.com/photo-1660169376132-409f66fedcee?auto=format&fit=crop&w=800&q=60">
+</a>
 
-<div class="project-content">
+<a href="#">
+<span>API Design</span>
+<img src="https://images.unsplash.com/photo-1660201367471-9fc0cb34734f?auto=format&fit=crop&w=800&q=60">
+</a>
 
-<h3 class="project-title">Portfolio Website</h3>
+<a href="#">
+<span>Database Optimization</span>
+<img src="https://images.unsplash.com/photo-1660158847730-e93a2a96ca59?auto=format&fit=crop&w=800&q=60">
+</a>
 
-<p class="project-description">
-Modern portfolio website with responsive UI.
-</p>
-
-<div class="tech-stack">
-<span class="tech-tag">HTML</span>
-<span class="tech-tag">CSS</span>
-<span class="tech-tag">JavaScript</span>
-</div>
-
-<a href="#" class="project-link">View Live</a>
-
-</div>
-</div>
+<a href="#">
+<span>Node.js Performance</span>
+<img src="https://images.unsplash.com/photo-1660074519968-d718487e9a7b?auto=format&fit=crop&w=800&q=60">
+</a>
 
 </div>
 
@@ -362,159 +233,44 @@ Modern portfolio website with responsive UI.
 
 </section>
 
-<!-- MODAL -->
-
-<div class="project-modal" id="projectModal">
-
-<div class="modal-content">
-
-<span class="modal-close">&times;</span>
-
-<div class="modal-gallery">
-
-<img id="modalMainImage" class="modal-main-img">
-
-<div class="modal-thumbnails" id="modalThumbs"></div>
-
-</div>
-
-<h3 id="modalTitle"></h3>
-
-<p id="modalDesc"></p>
-
-</div>
-
-</div>
-
 <script>
 
-/* hover glow */
+/* ================= SMOOTH IMAGE FOLLOW ================= */
 
-const projectSection=document.getElementById('projects-section');
+const blogNav = document.getElementById("blogNav");
 
-projectSection.addEventListener('mousemove',e=>{
+blogNav.querySelectorAll("a").forEach(link => {
 
-const rect=projectSection.getBoundingClientRect();
+const img = link.querySelector("img");
 
-const x=((e.clientX-rect.left)/rect.width)*100;
-const y=((e.clientY-rect.top)/rect.height)*100;
+let mouseX = 0;
+let mouseY = 0;
 
-document.querySelectorAll('.project-content').forEach(content=>{
+let currentX = 0;
+let currentY = 0;
 
-content.style.setProperty('--x',`${x}%`);
-content.style.setProperty('--y',`${y}%`);
-content.classList.add('hovered');
+link.addEventListener("mousemove", e => {
 
-});
+const rect = link.getBoundingClientRect();
 
-});
-
-projectSection.addEventListener('mouseleave',()=>{
-
-document.querySelectorAll('.project-content').forEach(content=>{
-content.classList.remove('hovered');
-});
+mouseX = e.clientX - rect.left;
+mouseY = e.clientY - rect.top;
 
 });
 
+function animate(){
 
-/* FILTER */
+currentX += (mouseX - currentX) * 0.15;
+currentY += (mouseY - currentY) * 0.15;
 
-const filterButtons=document.querySelectorAll(".filter-btn");
-const projectCards=document.querySelectorAll(".project-card");
+img.style.left = currentX + "px";
+img.style.top = currentY + "px";
 
-filterButtons.forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-
-document.querySelector(".filter-btn.active").classList.remove("active");
-btn.classList.add("active");
-
-const filter=btn.dataset.filter;
-
-projectCards.forEach(card=>{
-
-if(filter==="all"||card.dataset.category===filter){
-
-card.style.display="flex";
-card.classList.remove("hide");
-
-}else{
-
-card.classList.add("hide");
-
-setTimeout(()=>card.style.display="none",300);
+requestAnimationFrame(animate);
 
 }
 
-});
-
-});
-
-});
-
-
-/* MODAL */
-
-const modal=document.getElementById("projectModal");
-const modalContent=document.querySelector(".modal-content");
-
-const modalMain=document.getElementById("modalMainImage");
-const modalThumbs=document.getElementById("modalThumbs");
-
-const modalTitle=document.getElementById("modalTitle");
-const modalDesc=document.getElementById("modalDesc");
-
-document.querySelectorAll(".project-card").forEach(card=>{
-
-card.addEventListener("click",()=>{
-
-const images=card.dataset.images.split(",");
-
-modalThumbs.innerHTML="";
-
-modalMain.src=images[0];
-
-images.forEach((img,i)=>{
-
-const thumb=document.createElement("img");
-thumb.src=img;
-
-if(i===0) thumb.classList.add("active");
-
-thumb.onclick=()=>{
-
-modalMain.src=img;
-
-document.querySelectorAll(".modal-thumbnails img").forEach(t=>t.classList.remove("active"));
-thumb.classList.add("active");
-
-};
-
-modalThumbs.appendChild(thumb);
-
-});
-
-modalTitle.textContent=card.querySelector(".project-title").textContent;
-modalDesc.textContent=card.querySelector(".project-description").textContent;
-
-modal.classList.add("active");
-
-});
-
-});
-
-/* modal close */
-
-document.querySelector(".modal-close").onclick=()=>{
-modal.classList.remove("active");
-};
-
-modal.addEventListener("click",(e)=>{
-
-if(!modalContent.contains(e.target)){
-modal.classList.remove("active");
-}
+animate();
 
 });
 

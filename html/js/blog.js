@@ -1,22 +1,38 @@
-const navBlog = document.getElementById("nav-blog");
+/* ================= SMOOTH IMAGE FOLLOW ================= */
 
-		for(const link of navBlog.getElementsByTagName("a")) {  
-		link.onmousemove = e => {
-			const rect = link.getBoundingClientRect(),    
-				img = link.querySelector("img");
-			
-			img.style.left = `${e.clientX - rect.left}px`;
-			img.style.top = `${e.clientY - rect.top}px`;
-		}
-		}
+const blogNav = document.getElementById("blogNav");
 
-		window.onmousemove = e => {
-			const percent = e.clientY / window.innerHeight;
-			
-			navBlog.animate({
-				transform: `translateY(${percent * navBlog.offsetHeight * -1}px)`
-			}, {
-				fill: "forwards",
-				duration: 4000
-			})
-			}
+blogNav.querySelectorAll("a").forEach(link => {
+
+const img = link.querySelector("img");
+
+let mouseX = 0;
+let mouseY = 0;
+
+let currentX = 0;
+let currentY = 0;
+
+link.addEventListener("mousemove", e => {
+
+const rect = link.getBoundingClientRect();
+
+mouseX = e.clientX - rect.left;
+mouseY = e.clientY - rect.top;
+
+});
+
+function animate(){
+
+currentX += (mouseX - currentX) * 0.15;
+currentY += (mouseY - currentY) * 0.15;
+
+img.style.left = currentX + "px";
+img.style.top = currentY + "px";
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+});

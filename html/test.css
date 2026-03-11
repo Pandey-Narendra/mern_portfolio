@@ -1,0 +1,1115 @@
+/* 
+  THEME VARIABLES & DESIGN SYSTEM
+  -------------------------------------------------
+  Consistent color palette, typography, and spacing
+  across all sections for unified visual language
+*/
+:root {
+  /* Colors - Primary Palette */
+  --primary-color: #f48fb1;
+  --secondary-color: #81d4fa;
+  --highlight-color: #f7c873;
+  --glow-color: rgba(244, 143, 177, 0.6);
+
+  /* Colors - Background Hierarchy */
+  --bg-dark: #0b0b0c;
+  --bg-light: #121212;
+  --bg-card: #151515;
+  --border-color: #333;
+
+  /* Colors - Text Hierarchy */
+  --text-color: #e2e2e2;
+  --text-muted: #ccc;
+  --accent: #f7c873;
+
+  /* Typography */
+  --font-main: 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', sans-serif;
+  --font-alt: 'Cormorant Garamond', serif;
+  --font-sans: 'Lato', sans-serif;
+
+  /* Spacing System */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Transitions */
+  --transition-base: 300ms ease-in-out;
+  --transition-hover: 200ms ease-out;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 0 20px var(--highlight-color);
+
+  /* Elevation Glow */
+  --elevation-glow-accent: 0 0 20px var(--highlight-color);
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+}
+
+/* 
+  GLOBAL STYLES
+  -------------------------------------------------
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-color);
+  font-family: var(--font-main);
+}
+
+/* Typography helpers */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--accent);
+  font-family: var(--font-alt);
+}
+
+p {
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--highlight-color);
+  opacity: 0.85;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Buttons */
+.btn-outline {
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-base), color var(--transition-base);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: #111;
+  box-shadow: var(--shadow-sm);
+}
+
+/* 
+  SHARED COMPONENTS
+  -------------------------------------------------
+*/
+.section {
+  padding: 5rem 1rem;
+  overflow: hidden;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-head span {
+  display: block;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.section-head h2 {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-top: 0.5rem;
+}
+
+/* Cards base style */
+.card,
+.project-card,
+.inside-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.card:hover,
+.project-card:hover,
+.inside-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--elevation-glow-accent);
+  border-color: var(--highlight-color);
+}
+
+/* 
+  NAVBAR
+  -------------------------------------------------
+*/
+.navbar-custom {
+  background: var(--bg-light);
+}
+
+.navbar-brand {
+  font-family: var(--font-alt);
+  color: var(--accent);
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  color: var(--text-color);
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent);
+}
+
+/* 
+  HOME
+  -------------------------------------------------
+*/
+.section-home {
+  position: relative;
+  height: 100vh;
+  background: var(--bg-dark);
+  color: var(--text-color);
+  background-image: url("../images/banner.jpg");
+  /* background-image: url("../images/linkedIn\ Banner.png"); */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+.section-home .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.overlay-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.overlay-wrap span {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+
+.overlay-wrap h1 {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.overlay-wrap h4 {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--text-muted);
+}
+
+/* 
+  ABOUT
+  -------------------------------------------------
+*/
+.section-about-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-desc-content hr {
+  /* background: var(--accent); */
+  background: #f7c873;
+  height: 2px;
+  border: none;
+  /* margin: 1.5rem 0; */
+  margin-top: 1.5rem;
+  margin-right: 0px;
+  margin-bottom: 1.5rem;
+  margin-left: 0px;
+  
+}
+
+
+.about-desc-social i {
+  font-size: 1.5rem;
+  color: var(--accent);
+  transition: color 0.3s ease;
+}
+
+.about-desc-social i:hover {
+  color: var(--accent);
+}
+
+.about-desc-social li a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #333;
+    /* border-radius: var(--radius-md); */
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    color: #f7c873;
+    /* transition: all var(--transition-base) var(--timing-function); */
+    transition-behavior: normal;
+    transition-duration: 0s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all;
+}
+
+.about-desc-social li a:hover {
+        border-top-color: rgb(247, 200, 115);
+    border-right-color: rgb(247, 200, 115);
+    border-bottom-color: rgb(247, 200, 115);
+    border-left-color: rgb(247, 200, 115);
+    box-shadow: #f7c873;
+    transform: translateY(-3px) scale(1.1);
+}
+.img-thumbnail {
+  border-radius: 1rem;
+}
+
+/* 
+  WHAT I DO (Services)
+  -------------------------------------------------
+*/
+.box-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.shape-box {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+}
+
+.shape-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shape-box:hover img {
+  transform: scale(1.05);
+}
+
+.shape-box:hover {
+  box-shadow: var(--elevation-glow-accent);
+}
+
+.shape-box figcaption {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px);
+  color: var(--text-color);
+  padding: 1.5rem;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.shape-box:hover figcaption {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card-no {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.card-main-title {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.card-content {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+.read-more-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #111;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background: #e5b45f;
+  color: #111;
+}
+
+/* 
+  RESPONSIVE UTILITIES & MEDIA QUERIES
+  -------------------------------------------------
+*/
+
+/* Typography fluid scaling */
+h1 {
+  font-size: clamp(1.5rem, 5vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+}
+
+h4 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+p {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+}
+
+/* Container and section scaling */
+.section {
+  padding: clamp(2rem, 5vw, 5rem) clamp(0.75rem, 3vw, 2rem);
+}
+
+.section-head {
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.section-head h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* Button responsive sizing */
+.btn,
+.btn-outline,
+.read-more-btn {
+  min-height: 44px;
+  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1.5rem);
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+}
+
+/* 
+  MOBILE DEVICES (up to 480px)
+  -------------------------------------------------
+*/
+@media screen and (max-width: 480px) {
+  /* Global */
+  body {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  /* Home */
+  .section-home {
+    height: 80vh;
+  }
+
+  .overlay-wrap h1 {
+    font-size: 1.75rem;
+    margin: 0.75rem 0;
+  }
+
+  .overlay-wrap h4 {
+    font-size: 0.9rem;
+  }
+
+  /* Navigation */
+  .navbar {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  /* Services/Cards */
+  .shape-box {
+    width: 100%;
+    height: 250px;
+    margin: 0;
+  }
+
+  .box-wrapper {
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .card-no {
+    font-size: 1.5rem;
+  }
+
+  .card-main-title {
+    font-size: 0.95rem;
+  }
+
+  .card-content {
+    font-size: 0.85rem;
+  }
+
+  /* About */
+  .section-about-wrap {
+    max-width: 100%;
+  }
+
+  .about-desc-social li a {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .img-thumbnail {
+    border-radius: 0.5rem;
+  }
+}
+
+/* 
+  TABLETS (481px to 768px)
+  -------------------------------------------------
+*/
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  /* Global */
+  .section {
+    padding: 3rem 1.5rem;
+  }
+
+  /* Home */
+  .section-home {
+    height: 85vh;
+  }
+
+  .overlay-wrap h1 {
+    font-size: 2.25rem;
+  }
+
+  .overlay-wrap h4 {
+    font-size: 1rem;
+  }
+
+  /* Services/Cards */
+  .shape-box {
+    width: 100%;
+    height: 300px;
+  }
+
+  .box-wrapper {
+    gap: 1.5rem;
+    flex-direction: column;
+  }
+
+  .section-head h2 {
+    font-size: 2rem;
+  }
+
+  /* About */
+  .section-about-wrap {
+    max-width: 100%;
+  }
+
+  .about-desc-social li a {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* 
+  SMALL DESKTOPS (769px to 1024px)
+  -------------------------------------------------
+*/
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* Global */
+  .section {
+    padding: 4rem 2rem;
+  }
+
+  /* Home */
+  .section-home {
+    height: 90vh;
+  }
+
+  /* Services/Cards */
+  .shape-box {
+    width: 100%;
+    height: 350px;
+  }
+
+  .box-wrapper {
+    gap: 1.5rem;
+  }
+
+  .section-head h2 {
+    font-size: 2.2rem;
+  }
+
+  /* About */
+  .section-about-wrap {
+    max-width: 900px;
+  }
+}
+
+/* 
+  LARGE DESKTOPS (1025px and above)
+  -------------------------------------------------
+*/
+@media screen and (min-width: 1025px) {
+  /* Already optimized for desktop */
+  .section {
+    padding: 5rem 2rem;
+  }
+
+  .shape-box {
+    width: 400px;
+    height: 400px;
+  }
+
+  .box-wrapper {
+    gap: 2rem;
+  }
+}
+
+/* 
+  ADDITIONAL TOUCH-FRIENDLY OPTIMIZATIONS
+  -------------------------------------------------
+*/
+
+/* Ensure all interactive elements have minimum 44px touch target */
+@media screen and (max-width: 768px) {
+  button,
+  a,
+  [role="button"],
+  .btn,
+  .btn-outline,
+  .read-more-btn,
+  .nav-link {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Improve form inputs for mobile */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+  }
+
+  /* Improve tap target spacing */
+  .nav-link {
+    padding: 0.75rem 1rem;
+    margin: 0.25rem;
+  }
+
+  /* Reduce animation complexity on mobile for better performance */
+  * {
+    transition-duration: 0.15s !important;
+  }
+
+  /* Prevent zoom on input focus on mobile */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    font-size: 16px;
+  }
+}
+
+/* 
+  PRINT STYLES
+  -------------------------------------------------
+*/
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .navbar,
+  .btn,
+  .nav-link,
+  footer {
+    display: none;
+  }
+
+  .section {
+    page-break-inside: avoid;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* 
+  FINAL POLISH & SMOOTHING
+  -------------------------------------------------
+*/
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize transition timing */
+* {
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Remove outline delays for better UX */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline-offset: 2px;
+}
+
+/* Ensure consistent spacing around major sections */
+section {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Body and page wrapper consistency */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+}
+
+.page-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Container padding consistency */
+.container {
+  max-width: 1400px !important;
+  padding-left: clamp(1rem, 3vw, 2rem) !important;
+  padding-right: clamp(1rem, 3vw, 2rem) !important;
+}
+
+/* Ensure buttons are always accessible */
+button,
+a[role="button"],
+.btn {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Video optimization */
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent overflow on mobile */
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    overflow-x: hidden;
+  }
+
+  .container {
+    overflow-x: hidden;
+  }
+}
+
+
+
+
+
+
+
+/* 
+  NAVBAR STYLES - RESPONSIVE & PROFESSIONAL
+  ==============================================
+*/
+
+/* Global Navbar Styles */
+.navbar {
+    background-color: var(--bg-light);
+    z-index: 999;
+    padding-top: clamp(12px, 2vw, 15px);
+    padding-bottom: clamp(12px, 2vw, 15px);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 300ms ease-in-out;
+}
+
+.navbar.fixed-top {
+    position: fixed !important;
+}
+
+/* Navbar Brand */
+.navbar-brand {
+    color: var(--accent) !important;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: 'Josefin Sans', sans-serif;
+    transition: opacity 300ms ease-in-out;
+}
+
+.navbar-brand:hover {
+    opacity: 0.8;
+}
+
+/* Navbar Container */
+.navbar .container {
+    max-width: 1400px;
+    padding-left: clamp(1rem, 2vw, 2rem);
+    padding-right: clamp(1rem, 2vw, 2rem);
+}
+
+/* Navbar Collapse */
+.navbar-collapse {
+    transition: all 300ms ease-in-out;
+}
+
+/* Navbar Nav */
+.navbar-nav {
+    gap: clamp(0.5rem, 1vw, 1.5rem);
+    align-items: center;
+}
+
+/* Nav Links */
+.navbar-nav .nav-link {
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    color: rgba(226, 226, 226, 0.7) !important;
+    text-transform: uppercase;
+    padding-left: clamp(10px, 1.5vw, 15px) !important;
+    padding-right: clamp(10px, 1.5vw, 15px) !important;
+    opacity: 0.8;
+    transition: all 300ms ease-in-out;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.navbar-nav .nav-link:hover {
+    opacity: 1;
+    color: var(--accent) !important;
+    background: rgba(247, 200, 115, 0.1);
+}
+
+.navbar-nav .nav-link.active {
+    opacity: 1;
+    color: var(--accent) !important;
+    font-weight: 700;
+}
+
+/* Navbar Toggler (Hamburger Menu) */
+.navbar-toggler {
+    padding: 0.5rem 0.75rem;
+    border: none;
+    outline: none !important;
+    background: transparent;
+    transition: all 300ms ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: 2px solid var(--accent);
+}
+
+.navbar-light .navbar-toggler {
+    border-color: transparent;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23e2e2e2' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    width: 1.5rem;
+    height: 1.5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 300ms ease-in-out;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f7c873' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M7 7l16 16M23 7L7 23'/%3e%3c/svg%3e");
+}
+
+/* 
+  RESPONSIVE NAVBAR BREAKPOINTS
+  -----------------------------------------
+*/
+
+/* Mobile (up to 480px) */
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .navbar .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+
+    .navbar-collapse {
+        background: var(--bg-card);
+        border-top: 1px solid var(--border-color);
+        border-radius: 0;
+        padding: 1rem 0;
+        margin-top: 0.5rem;
+    }
+
+    .navbar-nav {
+        gap: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 1rem;
+    }
+
+    .navbar-nav .nav-link {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 0.75rem 0.5rem !important;
+        margin: 0.25rem 0;
+        border-radius: 4px;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background: rgba(247, 200, 115, 0.15);
+        padding-left: 1rem !important;
+    }
+
+    .navbar-toggler {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* Tablets (481px to 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .navbar {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .navbar .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar-collapse {
+        background: var(--bg-card);
+        border-top: 1px solid var(--border-color);
+        padding: 1rem 0;
+        margin-top: 0.5rem;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 1rem;
+    }
+
+    .navbar-nav .nav-link {
+        width: 100%;
+        font-size: 0.95rem;
+        padding: 0.75rem 0.5rem !important;
+        margin: 0.25rem 0;
+    }
+
+    .navbar-toggler {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* Small Desktops (769px to 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .navbar .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+
+    .navbar-nav {
+        gap: 1rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+        padding: 0.75rem 1rem !important;
+    }
+
+    .navbar-collapse {
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+/* Large Desktops (1025px and above) */
+@media screen and (min-width: 1025px) {
+    .navbar {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .navbar .container {
+        max-width: 1400px;
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    .navbar-nav {
+        gap: 1.5rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        padding: 0.75rem 15px !important;
+    }
+
+    .navbar-collapse {
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+}
+
+/* Show navbar collapse on desktop */
+@media screen and (min-width: 992px) {
+    .navbar-collapse {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+/* Hamburger visible only on mobile/tablet */
+@media screen and (max-width: 991px) {
+    .navbar-toggler {
+        display: inline-flex !important;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .navbar-toggler {
+        display: none !important;
+    }
+}
+
+/* Navbar elevation on scroll */
+.navbar.scrolled {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Accessibility improvements */
+.navbar-nav .nav-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}

@@ -1,0 +1,137 @@
+
+/* ================= THEME ================= */
+
+:root {
+
+  --bg-dark: #0b0b0c;
+  --bg-light: #121212;
+  --bg-card: #151515;
+
+  --text-color: #e2e2e2;
+  --text-muted: #ccc;
+
+  --accent: #f7c873;
+  --highlight-color: #f7c873;
+
+  --border-color: #333;
+
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-alt: 'Cormorant Garamond', serif;
+
+}
+
+/* ================= BODY ================= */
+
+body{
+margin:0;
+background:var(--bg-dark);
+color:var(--text-color);
+font-family:var(--font-main);
+overflow-x:hidden;
+} 
+
+/* ================= SPLIT SECTION ================= */
+
+.split-wrapper{
+position:relative;
+height:90vh;
+width:100%;
+overflow:hidden;
+}
+
+/* ================= PANELS ================= */
+
+.side{
+position:absolute;
+width:100%;
+height:100%;
+display:grid;
+place-items:center;
+overflow:hidden;
+}
+
+/* ================= TEXT ================= */
+
+.title{
+
+font-family:var(--font-alt);
+font-size:clamp(2.5rem,6vw,6rem);
+font-weight:700;
+
+margin:0 10vw;
+width:80vw;
+
+line-height:1.1;
+
+}
+
+.fancy{
+font-family:"Permanent Marker",cursive;
+font-size:1.6em;
+}
+
+/* ================= LEFT PANEL ================= */
+
+#left-side{
+background:var(--bg-light);
+width:60%;
+z-index:2;
+border-right:1px solid var(--border-color);
+}
+
+#left-side .title{
+color:var(--text-color);
+}
+
+#left-side .fancy{
+color:var(--accent);
+}
+
+/* ================= RIGHT PANEL ================= */
+
+#right-side{
+background:var(--bg-card);
+}
+
+#right-side .title{
+color:var(--text-muted);
+}
+
+#right-side .fancy{
+color:var(--highlight-color);
+}
+
+/* ================= DIVIDER ================= */
+
+.divider{
+
+position:absolute;
+
+top:0;
+bottom:0;
+
+width:3px;
+
+background:var(--accent);
+
+box-shadow:0 0 20px var(--accent);
+
+z-index:5;
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.split-wrapper{
+height:60vh;
+}
+
+.title{
+font-size:2rem;
+margin:0 5vw;
+width:90vw;
+}
+
+}
