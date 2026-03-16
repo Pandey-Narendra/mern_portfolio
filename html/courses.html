@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Expertise</title>
+
+<link rel="stylesheet" href="css/theme.css">
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:400,700&display=swap');
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+.edu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* width: 100vw; */
+  height: auto;
+  /* background-color: #e6e6e6; */
+}
+
+.edu-header {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin-top: 10rem;
+  margin-right: 10rem;
+  margin-left: 10rem;
+  margin-bottom: 5rem;
+}
+
+.edu-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 20px; 
+}
+
+.edu-text {
+  font-size: 3rem;
+  padding-bottom: 1rem;
+}
+
+.certs {
+  display: flex;
+  justify-content: center;
+}
+
+.certs img {
+  margin-right: 2rem;
+  height: 240px;
+  width: auto;
+}
+
+#cert {
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px #111111;
+  transition: transform .3s ease;
+}
+
+#cert:hover {
+  transform: scale(1.5);
+}
+
+#c-span {
+  align-self: center;
+  width: 50%;
+  border: 1px solid #999;
+  margin-top: 3rem;
+}
+
+.courses {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 5rem;
+}
+
+.courses-content {
+  margin-top: 5rem;
+}
+
+#c-text {
+  color: var(--text-color);
+  line-height: 2rem;
+  font-family: "Lora", serif;
+  font-size: 1.2rem;
+  margin-bottom: 5rem;
+}
+
+#c-img {
+  height: auto;
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+}
+
+#c-title {
+  font-size: 1.1rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+#c-cat {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  letter-spacing: 1.2px;
+  margin-top: 10px;
+}
+
+/* 
+  RESPONSIVE COURSES SECTION
+  -------------------------------------------------
+*/
+
+/* Mobile (up to 480px) */
+@media screen and (max-width: 480px) {
+  .edu {
+    height: auto;
+  }
+
+  .edu-header {
+    margin: 2rem 1rem 3rem;
+    text-align: center;
+  }
+
+  .edu-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .edu-text {
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .certs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .certs img {
+    margin: 0 0 1.5rem 0;
+    height: 150px;
+    width: auto;
+  }
+
+  #cert {
+    box-shadow: 2px 2px 2px #111;
+  }
+
+  #c-span {
+    width: 90%;
+    margin-top: 2rem;
+  }
+
+  .courses {
+    margin: 2rem 1rem;
+  }
+
+  .courses-content {
+    margin-top: 2rem;
+  }
+
+  #c-text {
+    line-height: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  #c-img {
+    width: 80px;
+    margin-bottom: 1.5rem;
+  }
+
+  #c-title {
+    font-size: 1rem;
+  }
+
+  #c-cat {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Tablets (481px to 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .edu-header {
+    margin: 3rem 2rem 4rem;
+  }
+
+  .edu-title {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .edu-text {
+    font-size: 2rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .certs {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .certs img {
+    margin: 0;
+    height: 180px;
+    width: auto;
+  }
+
+  #c-span {
+    width: 80%;
+    margin-top: 2.5rem;
+  }
+
+  .courses {
+    margin: 3rem 2rem;
+  }
+
+  .courses-content {
+    margin-top: 3rem;
+  }
+
+  #c-text {
+    line-height: 1.75rem;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+  }
+
+  #c-img {
+    width: 90px;
+    margin-bottom: 1.5rem;
+  }
+
+  #c-title {
+    font-size: 1.05rem;
+  }
+
+  #c-cat {
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Desktops (769px to 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .edu-header {
+    margin: 4rem 4rem 5rem;
+  }
+
+  .edu-title {
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .edu-text {
+    font-size: 2.5rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .certs {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .certs img {
+    height: 200px;
+    width: auto;
+  }
+
+  #c-span {
+    width: 70%;
+    margin-top: 3rem;
+  }
+
+  .courses {
+    margin: 4rem 3rem;
+  }
+
+  .courses-content {
+    margin-top: 4rem;
+  }
+
+  #c-text {
+    font-size: 1.15rem;
+    margin-bottom: 4rem;
+  }
+
+  #c-img {
+    width: 100px;
+    margin-bottom: 2rem;
+  }
+
+  #c-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Large Desktops (1025px and above) */
+@media screen and (min-width: 1025px) {
+  .edu-header {
+    margin: 5rem 10rem;
+    margin-bottom: 5rem;
+  }
+
+  .edu-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .edu-text {
+    font-size: 3rem;
+    padding-bottom: 1rem;
+  }
+
+  .certs {
+    gap: 2rem;
+  }
+
+  .certs img {
+    margin-right: 2rem;
+    height: 240px;
+    width: auto;
+  }
+
+  #c-span {
+    width: 50%;
+    margin-top: 3rem;
+  }
+
+  .courses {
+    margin: 5rem;
+  }
+
+  .courses-content {
+    margin-top: 5rem;
+  }
+
+  #c-text {
+    font-size: 1.2rem;
+    margin-bottom: 5rem;
+  }
+
+  #c-img {
+    width: 100px;
+    margin-bottom: 2rem;
+  }
+
+  #c-title {
+    font-size: 1.1rem;
+  }
+
+  #c-cat {
+    font-size: 0.9rem;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+		<!-- Courses & Certificates -->
+			<section class="section section-freelance section-light text-center">
+			<div class="container">
+				<div class="section-head">
+					<h2>Courses & Certificates</h2>
+				</div>
+				<div class="edu">
+					<div class="certs">
+						<a href="#" alt="link to course">
+							<img id="cert"src="https://i.imgur.com/04Mqx2E.jpg">
+						</a>
+						<a href="#" alt="link to course">
+							<img id="cert" src="https://i.imgur.com/HgQLKWJ.png">
+						</a>
+						<a href="#" alt="link to course">
+							<img id="cert" src="https://i.imgur.com/RS0DkPr.jpg">
+						</a>
+					</div>
+				</div>
+			</div>
+			</section>
+		<!-- Courses & Certificates -->
+
+
+
+</body>
+</html>

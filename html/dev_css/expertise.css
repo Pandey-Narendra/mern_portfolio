@@ -1,0 +1,190 @@
+ /* ===============================
+SECTION
+=============================== */
+
+.div-expertise{
+max-width:1200px;
+margin:auto;
+padding:0 20px;
+}
+
+/* ===============================
+HEADER
+=============================== */
+
+.div-expertise .div-head{
+margin-bottom:80px;
+}
+
+/* ===============================
+CONTAINER
+=============================== */
+
+.expertise-container{
+display:flex;
+flex-direction:column;
+gap:20px;
+/* max-width:900px; */
+margin:auto;
+}
+
+/* ===============================
+ROW
+=============================== */
+
+.expertise-item{
+
+width:100%;
+min-height:110px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+font-size:clamp(3rem,8vw,7rem);
+letter-spacing:-0.02em;
+line-height:1.05;
+
+margin:0;
+padding:14px 0;
+
+font-family:var(--font-alt);
+
+color:rgba(255,255,255,0.12);
+
+/* background:linear-gradient(to right,var(--accent),var(--accent)) no-repeat;
+ */
+ background: linear-gradient(to right, var(--accent), var(--accent)) no-repeat;
+background-size:0%;
+-webkit-background-clip:text;
+background-clip:text;
+
+border-bottom:1px solid var(--border-color);
+
+position:relative;
+
+transition:transform .3s ease;
+
+cursor:pointer;
+
+}
+
+/* ===============================
+HOVER MOVEMENT
+=============================== */
+
+.expertise-item:hover{
+transform:translateX(12px);
+text-shadow:0 0 15px rgba(247,200,115,0.4);
+}
+
+/* ===============================
+HOVER DESCRIPTION
+=============================== */
+
+.expertise-item span{
+
+position:absolute;
+inset:0;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+padding:0 20px;
+
+background:var(--accent);
+color:#111;
+
+font-size:clamp(1rem,2vw,1.8rem);
+text-align:center;
+
+clip-path:polygon(0 50%,100% 50%,100% 50%,0 50%);
+
+transition:all .45s cubic-bezier(.1,.5,.5,1);
+
+}
+
+.expertise-item:hover span{
+clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+}
+
+/* ===============================
+ACCENT LINE
+=============================== */
+
+.expertise-item::after{
+
+content:"";
+
+position:absolute;
+bottom:-1px;
+left:0;
+
+height:2px;
+width:0;
+
+background:var(--accent);
+
+transition:.4s;
+
+}
+
+.expertise-item:hover::after{
+width:100%;
+}
+
+/* ===============================
+MOBILE RESPONSIVE
+=============================== */
+
+@media(max-width:768px){
+
+.expertise-container{
+gap:25px;
+}
+
+.expertise-item{
+
+font-size:clamp(1.8rem,6vw,2.6rem);
+min-height:auto;
+padding:20px 0;
+
+flex-direction:column;
+gap:10px;
+
+}
+
+.expertise-item{
+max-width:700px;
+margin:auto;
+}
+
+
+/* show description normally */
+
+.expertise-item span{
+
+position:relative;
+clip-path:none;
+background:none;
+color:var(--text-muted);
+
+font-size:14px;
+
+padding:0;
+
+}
+
+.expertise-item:hover{
+transform:none;
+text-shadow:none;
+}
+
+.expertise-item::after{
+display:none;
+}
+
+}

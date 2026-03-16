@@ -1,0 +1,25 @@
+/* =================================================
+   NAVBAR
+================================================= */
+
+.navbar-custom{
+	background:var(--bg-light);
+	border-bottom:1px solid var(--border-color);
+}
+
+.navbar-brand{
+	font-family:var(--font-alt);
+	color:var(--accent);
+	font-size:1.5rem;
+}
+
+.nav-link{
+	color:var(--text-color);
+	margin:0 .5rem;
+	transition:color .25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active{
+	color:var(--accent);
+}

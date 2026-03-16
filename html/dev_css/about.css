@@ -1,0 +1,36 @@
+
+
+/* =================================================
+   ABOUT
+================================================= */
+
+.section-about{
+	margin:0 auto;
+	max-width:calc(1140px - 30px);
+	background:#1e1e1e;
+	margin-top:-200px;
+	z-index:100;
+	position:relative;
+	width:95%;
+	opacity:0;
+	visibility:hidden;
+	border-radius:5px;
+	transition:.5s;
+	transform:translateY(20px);
+	padding:0!important;
+	max-width:950px;
+}
+
+.section-about.in{
+	opacity:1;
+	visibility:visible;
+	transform:translateY(0);
+}
+
+.section-about-wrap{
+	max-width:1000px;
+	margin:auto;
+	padding:50px;
+	background-color:#1e1e1e;
+	border-radius:5px;
+}

@@ -18,7 +18,7 @@
 width:100%;
 height:600px;
 position:relative;
-overflow:visible;
+overflow:hidden;
 }
 
 /* FILTER BUTTONS */
@@ -60,40 +60,25 @@ height:100%;
 }
 
 /* Skill modal */
+
 .skill-modal{
-
 position:absolute;
-
 background:var(--bg-card);
 border:1px solid var(--border-color);
-
 padding:18px 22px;
-
 border-radius:10px;
-
 min-width:200px;
-
 pointer-events:none;
-z-index: 10;
-transform:translate(-50%,-110%) scale(.8);
-
+transform:translate(-50%,-120%) scale(.8);
 opacity:0;
-
 transition:.25s;
-
 box-shadow:0 10px 30px rgba(0,0,0,.6);
-
-text-align:center;
-
-backdrop-filter: blur(8px);
-
 }
 
 .skill-modal.show{
 opacity:1;
-transform:translate(-50%,-110%) scale(1);
+transform:translate(-50%,-120%) scale(1);
 }
-
 
 .skill-title{
 font-weight:600;
@@ -374,7 +359,7 @@ display:none;
 </div>
 
 
-<div class="section-expertise">
+<div class="section section-expertise">
 
 <div class="container">
 
@@ -585,64 +570,47 @@ createNodes()
 })
 
 /* HOVER */
-canvas.addEventListener("mousemove", e => {
 
-const rect = canvas.getBoundingClientRect()
+canvas.addEventListener("mousemove",e=>{
 
-const mx = e.clientX - rect.left
-const my = e.clientY - rect.top
+const rect=canvas.getBoundingClientRect()
 
-hoveredNode = null
+const mx=e.clientX-rect.left
+const my=e.clientY-rect.top
 
-nodes.forEach(node => {
+hoveredNode=null
 
-const dist = Math.hypot(mx - node.x, my - node.y)
+nodes.forEach(node=>{
 
-if (dist < node.radius + 8) {
+const dist=Math.hypot(mx-node.x,my-node.y)
 
-hoveredNode = node
+if(dist<node.radius+8){
+
+hoveredNode=node
 
 modal.classList.add("show")
 
-/* default position (above node) */
+modal.style.left=node.x+"px"
+modal.style.top=node.y+"px"
 
-let modalX = node.x
-let modalY = node.y - node.radius - 25
+modalTitle.textContent=node.text
 
-/* if modal would go outside top */
+modalBar.style.width=node.level+"%"
 
-if (modalY < 80) {
-modalY = node.y + node.radius + 35
-}
-
-/* if modal would overflow right */
-
-if (modalX > canvas.width - 120) {
-modalX = canvas.width - 120
-}
-
-/* if modal would overflow left */
-
-if (modalX < 120) {
-modalX = 120
-}
-
-modal.style.left = modalX + "px"
-modal.style.top = modalY + "px"
-
-modalTitle.textContent = node.text
-modalBar.style.width = node.level + "%"
-modalPercent.textContent = node.level + "% proficiency"
+modalPercent.textContent=node.level+"% proficiency"
 
 }
 
 })
 
-if (!hoveredNode) {
+if(!hoveredNode){
+
 modal.classList.remove("show")
+
 }
 
 })
+
 /* CONNECTIONS */
 
 function connectNodes(){

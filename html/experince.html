@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Narendra Pandey | Software Developer</title>
+    <link rel="shortcut icon" href="github/GitHub-Mark-Light-64px.png" type="image/x-icon">
+    <!-- ================= BOOTSTRAP ================= -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- ================= FONTAWESOME ================= -->
+    <script src="https://kit.fontawesome.com/43e5b1ec09.js" crossorigin="anonymous"></script>
+    <!-- ================= THEME CSS ================= -->
+    <link rel="stylesheet" href="./css/theme.css">
+    <!-- ================= SWIPER ================= -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <!-- ================= EXPERIENCE SLICK ================= -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <style>
+        /* =============================
+           EXPERIENCE TIMELINE (YOUR ORIGINAL STYLES - 100% UNCHANGED)
+        ============================= */
+        .ag-format-container{ max-width:1142px; width:100%; margin:0 auto; padding:0 15px; }
+        .ag-timeline-block{ position:relative; overflow:hidden; }
+        .ag-timeline_box{ position:relative; }
+
+        /* ARROWS */
+        .ag-timeline-carousel-arrow_box{ margin-bottom:20px; display:flex; gap:10px; }
+        .ag-timeline-carousel-arrow{ display:flex; align-items:center; justify-content:center; height:52px; width:52px; border:1px solid var(--border-color); background:transparent; cursor:pointer; stroke:var(--accent); border-radius:50%; transition:all .3s ease; }
+        .ag-timeline-carousel-arrow:hover{ border-color:var(--accent); }
+        .svg-arrow-left, .svg-arrow-right{ height:18px; width:10px; }
+
+        /* CAROUSEL CONTENT */
+        .ag-timeline-carousel_list{ padding-left:80px; }
+        .ag-timeline_year{ line-height:1; margin-bottom:40px; font-weight:300; font-size:clamp(2rem,6vw,3.5rem); color:var(--accent); }
+        .ag-timeline_text{ max-width:700px; }
+        .ag-timeline_text p{ line-height:1.6; margin-bottom:15px; font-size:16px; color:var(--text-color); }
+
+        /* NAVIGATION TIMELINE */
+        .ag-timeline-carousel-nav_box{ margin-top:40px; position:relative; }
+        .ag-timeline-carousel-nav_list{ position:relative; }
+        .ag-timeline-carousel-nav_list:after{ content:""; height:1px; background:var(--accent); position:absolute; left:0; right:0; bottom:50px; }
+        .ag-timeline-carousel-nav_item{ display:inline-block; min-width:120px; padding:120px 20px 0; cursor:pointer; text-align:center; font-size:16px; color:var(--text-color); position:relative; white-space:nowrap; }
+        .ag-timeline-carousel-nav_item:before{ content:""; height:6px; width:6px; margin:auto; background:var(--text-muted); position:absolute; left:0; right:0; bottom:102px; border-radius:50%; transition:.3s; }
+        .ag-timeline-carousel-nav_item:after{ content:""; height:40px; width:1px; margin:auto; background:var(--accent); position:absolute; left:0; right:0; bottom:52px; }
+        .ag-timeline-carousel-nav_item.slick-current{ font-weight:700; font-size:22px; color:var(--accent); }
+        .ag-timeline-carousel-nav_item.slick-current:before{ height:16px; width:16px; background:var(--accent); bottom:110px; }
+        .ag-timeline-carousel-nav_item.slick-current:after{ bottom:59px; }
+
+        /* RESPONSIVE (YOUR ORIGINAL) */
+        @media(max-width:992px){ .ag-timeline-carousel_list{ padding-left:40px; } .ag-timeline-carousel-arrow{ height:46px; width:46px; } .ag-timeline-carousel-nav_item{ min-width:100px; padding:100px 15px 0; font-size:14px; } }
+        @media(max-width:768px){ .ag-format-container{ width:94%; } .ag-timeline-carousel_list{ padding-left:0; } .ag-timeline-carousel-arrow_box{ justify-content:center; } .ag-timeline-carousel-arrow{ height:40px; width:40px; } .ag-timeline_text{ max-width:100%; } .ag-timeline_text p{ font-size:15px; } .ag-timeline-carousel-nav_item{ min-width:90px; padding:90px 10px 0; font-size:13px; } }
+        @media(max-width:480px){ .ag-timeline-carousel-arrow{ height:36px; width:36px; } .ag-timeline-carousel-nav_item{ min-width:70px; padding:70px 8px 0; font-size:12px; } }
+
+        /* ===============================
+           ENGINEERING PHILOSOPHY — ULTRA RESPONSIVE FOR EVERY MOBILE SCREEN
+        ================================ */
+        .philosophy-section{
+            padding-top:80px;
+            padding-bottom:80px;
+        }
+
+        .philosophy-wrapper{
+            position:relative;
+            height: clamp(260px, 42vh, 420px);     /* Smart height that works on every device */
+            width:100%;
+            overflow:hidden;
+            border-radius:12px;
+            border:1px solid var(--border-color);
+            box-shadow:0 10px 40px rgba(0,0,0,.4);
+        }
+
+        .ph-side{
+            position:absolute;
+            width:100%;
+            height:100%;
+            display:grid;
+            place-items:center;
+            overflow:hidden;
+            padding: 0 clamp(20px, 5vw, 60px);     /* Auto-adjusts padding on tiny phones */
+            transition: width 0.05s linear;
+        }
+
+        .ph-title{
+            font-family:var(--font-alt);
+            font-size: clamp(1.4rem, 5.5vw, 3rem); /* Perfect scaling — never too big or too small */
+            font-weight:600;
+            line-height:1.2;
+            max-width:900px;
+            text-align:center;
+            word-break:break-word;
+            overflow-wrap:break-word;
+        }
+
+        .ph-highlight{
+            font-family:"Permanent Marker",cursive;
+            font-size:1.2em;
+            color:var(--accent);
+        }
+
+        #ph-left{
+            background:var(--bg-light);
+            width:60%; /* initial */
+            z-index:2;
+            border-right:1px solid var(--border-color);
+        }
+
+        #ph-right{
+            background:var(--bg-card);
+            width:100%;
+        }
+
+        .ph-divider{
+            position:absolute;
+            top:0;
+            bottom:0;
+            width:4px;
+            background:var(--accent);
+            box-shadow:0 0 30px var(--accent);
+            z-index:5;
+            cursor: col-resize;
+            transition: left 0.05s linear;
+        }
+
+        #ph-right::before{
+            content:"";
+            position:absolute;
+            left:0;
+            top:0;
+            bottom:0;
+            width:80px;
+            background:linear-gradient(to right,var(--bg-card),transparent);
+            pointer-events:none;
+        }
+
+        /* ================ MOBILE OPTIMIZATIONS ================ */
+        /* 768px and below — already covered by clamp, but extra safety */
+        @media(max-width:768px){
+            .ph-title{
+                font-size: clamp(1.35rem, 6vw, 2.4rem);
+            }
+        }
+
+        /* 480px and below (most phones) */
+        @media(max-width:480px){
+            .philosophy-wrapper{
+                height: clamp(240px, 48vh, 320px);   /* Even more generous on portrait phones */
+            }
+            .ph-side{
+                padding: 0 clamp(15px, 4vw, 40px);
+            }
+        }
+
+        /* Ultra-small screens (iPhone SE, Galaxy old models, ~320-360px) */
+        @media(max-width:360px){
+            .philosophy-wrapper{
+                height: 240px;
+            }
+            .ph-title{
+                font-size: clamp(1.25rem, 7vw, 2rem);
+            }
+            .ph-side{
+                padding: 0 3vw;
+            }
+        }
+    </style>
+
+   <style>
+
+/* ================= SPLIT SECTION ================= */
+
+.split-wrapper{
+position:relative;
+height:40vh;
+width:100%;
+overflow:hidden;
+cursor:ew-resize;
+}
+
+/* ================= PANELS ================= */
+
+.side{
+position:absolute;
+width:100%;
+height:100%;
+display:grid;
+place-items:center;
+overflow:hidden;
+}
+
+/* ================= TEXT ================= */
+
+.title{
+
+font-family:var(--font-alt);
+font-size:clamp(2.5rem,6vw,6rem);
+font-weight:700;
+
+margin:0 10vw;
+width:80vw;
+
+line-height:1.1;
+
+}
+
+.fancy{
+font-family:"Permanent Marker",cursive;
+font-size:1.6em;
+}
+
+/* ================= LEFT PANEL ================= */
+
+#left-side{
+background:var(--bg-light);
+width:60%;
+z-index:2;
+border-right:1px solid var(--border-color);
+}
+
+#left-side .title{
+color:var(--text-color);
+}
+
+#left-side .fancy{
+color:var(--accent);
+}
+
+/* ================= RIGHT PANEL ================= */
+
+#right-side{
+/* background:var(--bg-card); */
+}
+
+#right-side .title{
+color:var(--text-muted);
+}
+
+#right-side .fancy{
+color:var(--highlight-color);
+}
+
+/* ================= DIVIDER ================= */
+
+.divider{
+
+position:absolute;
+top:0;
+bottom:0;
+left:60%;
+
+width:3px;
+
+background:var(--accent);
+box-shadow:0 0 20px var(--accent);
+
+z-index:5;
+pointer-events:none;
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.split-wrapper{
+height:60vh;
+}
+
+.title{
+font-size:2rem;
+margin:0 5vw;
+width:90vw;
+}
+
+}
+
+</style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="80">
+    <div class="page-wrapper">
+
+        <!-- ================= YOUR EXPERIENCE SECTION (100% UNCHANGED) ================= -->
+        <section class="section section-dark section-resume" id="resume">
+            <div class="container">
+                <div class="section-head text-center">
+                    <span>What I Work</span>
+                    <h2>My Experience</h2>
+                </div>
+                <div class="ag-timeline-block">
+                    <div class="ag-format-container">
+                        <div class="ag-timeline_box">
+                            <div class="ag-timeline-carousel-arrow_box">
+                                <i class="js-ag-timeline-carousel-arrow_prev ag-timeline-carousel-arrow">
+                                    <svg class="svg-arrow-left">
+                                        <use xlink:href="#ag-arrow-left"></use>
+                                    </svg>
+                                </i>
+                                <i class="js-ag-timeline-carousel-arrow_next ag-timeline-carousel-arrow">
+                                    <svg class="svg-arrow-right">
+                                        <use xlink:href="#ag-arrow-right"></use>
+                                    </svg>
+                                </i>
+                            </div>
+                            <ul id="ag-timeline-carousel" class="js-timeline-carousel ag-timeline-carousel_list">
+                                <li>
+                                    <div class="ag-timeline_year">SDE</div>
+                                    <div class="ag-timeline_text">
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                        <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+                                        <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+                                        <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ag-timeline_year">Software Developer</div>
+                                    <div class="ag-timeline_text">
+                                        <p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+                                        <p>Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.</p>
+                                        <p>Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.</p>
+                                        <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ag-timeline_year">Web Developer</div>
+                                    <div class="ag-timeline_text">
+                                        <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+                                        <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.</p>
+                                        <p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+                                        <p>Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ag-timeline-carousel-nav_box">
+                        <ul class="js-timeline-carousel_nav ag-timeline-carousel-nav_list m-5">
+                            <li class="ag-timeline-carousel-nav_item">SDE</li>
+                            <li class="ag-timeline-carousel-nav_item">Software Developer</li>
+                            <li class="ag-timeline-carousel-nav_item">Web Developer</li>
+                        </ul>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+                    <symbol id="ag-arrow-left" viewBox="0 0 7 12">
+                        <g><path d="M6 0.999512L1 5.99951L6 10.9995" fill="transparent" stroke-linecap="round" stroke-linejoin="round"/></g>
+                    </symbol>
+                    <symbol id="ag-arrow-right" viewBox="0 0 7 12">
+                        <g><path d="M1 10.9995L6 5.99951L1 0.999512" fill="transparent" stroke-linecap="round" stroke-linejoin="round"/></g>
+                    </symbol>
+                </svg>
+            </div>
+
+            <div class="split-wrapper" id="split">
+
+                <div id="left-side" class="side">
+
+                <h2 class="title">
+                Well designed systems remain
+                <span class="fancy">scalable</span>
+                </h2>
+
+                </div>
+
+                <div id="right-side" class="side">
+
+                <h2 class="title">
+                Poor architecture quickly becomes
+                <span class="fancy">technical debt</span>
+                </h2>
+
+                </div>
+
+                <div class="divider" id="divider"></div>
+
+            </div>
+        </section>
+
+        <!-- ================= PHILOSOPHY SECTION (ULTRA-RESPONSIVE) ================= -->
+        <!-- <section class="split-wrapper" id="split">
+
+        <div id="left-side" class="side">
+
+        <h2 class="title">
+        Well designed systems remain
+        <span class="fancy">scalable</span>
+        </h2>
+
+        </div>
+
+        <div id="right-side" class="side">
+
+        <h2 class="title">
+        Poor architecture quickly becomes
+        <span class="fancy">technical debt</span>
+        </h2>
+
+        </div>
+
+        <div class="divider" id="divider"></div>
+
+        </section> -->
+
+    </div>
+
+    <!-- ================================================= JAVASCRIPT ================================================= -->
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Vendor & Custom -->
+    <script src="js/vendor.js"></script>
+    <script src="js/custom.js"></script>
+
+    <!-- Ripple -->
+    <script>
+        $(document).ready(function(){
+            $('#home').ripples({
+                resolution: 500,
+                dropRadius: 20,
+                perturbance: 0.04
+            });
+        });
+    </script>
+
+    <!-- ================= EXPERIENCE SLICK (YOUR ORIGINAL INIT - UNCHANGED) ================= -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        (function ($) {
+            $(function () {
+                $('.js-timeline-carousel_nav').slick({
+                    infinite: true,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    variableWidth: true,
+                    centerMode: true,
+                    asNavFor: '.js-timeline-carousel',
+                    focusOnSelect: true,
+                    mobileFirst: true,
+                    responsive: [{
+                        breakpoint: 768,
+                        settings: { slidesToShow: 8 }
+                    },
+                    {
+                        breakpoint: 0,
+                        settings: { centerMode: false }
+                    }]
+                });
+
+                $('.js-timeline-carousel').slick({
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    prevArrow: '.js-ag-timeline-carousel-arrow_prev',
+                    nextArrow: '.js-ag-timeline-carousel-arrow_next',
+                    asNavFor: '.js-timeline-carousel_nav',
+                    speed: 500,
+                    responsive: [{
+                        breakpoint: 0,
+                        settings: { centerMode: false }
+                    }]
+                });
+            });
+        })(jQuery);
+    </script>
+
+    <!-- ================= PHILOSOPHY SPLIT (FUNCTIONALITY UNCHANGED) ================= -->
+    <script>
+        const phSection  = document.getElementById("philosophy-split");
+        const phLeft     = document.getElementById("ph-left");
+        const phDivider  = document.getElementById("ph-divider");
+
+        function initializePh() {
+            phLeft.style.width = "60%";
+            phDivider.style.left = "60%";
+        }
+
+        function movePh(e) {
+            const rect = phSection.getBoundingClientRect();
+            let x = e.clientX;
+            if (e.touches) x = e.touches[0].clientX;
+            if (!x) return;
+
+            let percent = ((x - rect.left) / rect.width) * 100;
+            percent = Math.max(10, Math.min(90, percent));
+
+            phLeft.style.width = percent + "%";
+            phDivider.style.left = percent + "%";
+        }
+
+        window.addEventListener("load", initializePh);
+
+        phSection.addEventListener("mousemove", movePh);
+        phSection.addEventListener("touchmove", (e) => {
+            e.preventDefault();           // prevents page scroll on every mobile
+            movePh(e);
+        });
+
+        // Keyboard support (desktop + landscape tablets)
+        document.addEventListener("keydown", (e) => {
+            let current = parseFloat(phLeft.style.width) || 60;
+            if (e.key === "ArrowLeft") current -= 2;
+            if (e.key === "ArrowRight") current += 2;
+            current = Math.max(10, Math.min(90, current));
+            phLeft.style.width = current + "%";
+            phDivider.style.left = current + "%";
+        });
+
+        // Re-initialize on orientation change (extra safety for mobile rotation)
+        window.addEventListener("resize", () => {
+            const currentPercent = parseFloat(phLeft.style.width) || 60;
+            phLeft.style.width = currentPercent + "%";
+            phDivider.style.left = currentPercent + "%";
+        });
+    </script>
+
+    <script>
+
+/* ================= SPLIT INTERACTION ================= */
+
+const section=document.getElementById("split")
+const left=document.getElementById("left-side")
+const divider=document.getElementById("divider")
+
+function updatePosition(clientX){
+
+const rect=section.getBoundingClientRect()
+
+const percent=((clientX-rect.left)/rect.width)*100
+
+left.style.width=percent+"%"
+divider.style.left=percent+"%"
+
+}
+
+/* mouse */
+
+section.addEventListener("mousemove",(e)=>{
+updatePosition(e.clientX)
+})
+
+/* touch */
+
+section.addEventListener("touchmove",(e)=>{
+updatePosition(e.touches[0].clientX)
+},{passive:true})
+
+</script>
+</body>
+</html>

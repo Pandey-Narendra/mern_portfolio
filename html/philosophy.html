@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Engineering Philosophy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/theme.css">
+
+<style>
+
+/* ================= SPLIT SECTION ================= */
+
+.split-wrapper{
+position:relative;
+height:90vh;
+width:100%;
+overflow:hidden;
+cursor:ew-resize;
+}
+
+/* ================= PANELS ================= */
+
+.side{
+position:absolute;
+width:100%;
+height:100%;
+display:grid;
+place-items:center;
+overflow:hidden;
+}
+
+/* ================= TEXT ================= */
+
+.title{
+
+font-family:var(--font-alt);
+font-size:clamp(2.5rem,6vw,6rem);
+font-weight:700;
+
+margin:0 10vw;
+width:80vw;
+
+line-height:1.1;
+
+}
+
+.fancy{
+font-family:"Permanent Marker",cursive;
+font-size:1.6em;
+}
+
+/* ================= LEFT PANEL ================= */
+
+#left-side{
+background:var(--bg-light);
+width:60%;
+z-index:2;
+border-right:1px solid var(--border-color);
+}
+
+#left-side .title{
+color:var(--text-color);
+}
+
+#left-side .fancy{
+color:var(--accent);
+}
+
+/* ================= RIGHT PANEL ================= */
+
+#right-side{
+background:var(--bg-card);
+}
+
+#right-side .title{
+color:var(--text-muted);
+}
+
+#right-side .fancy{
+color:var(--highlight-color);
+}
+
+/* ================= DIVIDER ================= */
+
+.divider{
+
+position:absolute;
+top:0;
+bottom:0;
+left:60%;
+
+width:3px;
+
+background:var(--accent);
+box-shadow:0 0 20px var(--accent);
+
+z-index:5;
+pointer-events:none;
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.split-wrapper{
+height:60vh;
+}
+
+.title{
+font-size:2rem;
+margin:0 5vw;
+width:90vw;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="split-wrapper" id="split">
+
+<div id="left-side" class="side">
+
+<h2 class="title">
+Well designed systems remain
+<span class="fancy">scalable</span>
+</h2>
+
+</div>
+
+<div id="right-side" class="side">
+
+<h2 class="title">
+Poor architecture quickly becomes
+<span class="fancy">technical debt</span>
+</h2>
+
+</div>
+
+<div class="divider" id="divider"></div>
+
+</section>
+
+<script>
+
+/* ================= SPLIT INTERACTION ================= */
+
+const section=document.getElementById("split")
+const left=document.getElementById("left-side")
+const divider=document.getElementById("divider")
+
+function updatePosition(clientX){
+
+const rect=section.getBoundingClientRect()
+
+const percent=((clientX-rect.left)/rect.width)*100
+
+left.style.width=percent+"%"
+divider.style.left=percent+"%"
+
+}
+
+/* mouse */
+
+section.addEventListener("mousemove",(e)=>{
+updatePosition(e.clientX)
+})
+
+/* touch */
+
+section.addEventListener("touchmove",(e)=>{
+updatePosition(e.touches[0].clientX)
+},{passive:true})
+
+</script>
+
+</body>
+
+</html>

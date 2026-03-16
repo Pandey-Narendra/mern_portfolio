@@ -1,0 +1,235 @@
+/* =============================
+   EXPERIENCE TIMELINE
+============================= */
+
+.ag-format-container{
+	max-width:1142px;
+	width:100%;
+	margin:0 auto;
+	padding:0 15px;
+}
+
+.ag-timeline-block{
+	position:relative;
+	overflow:hidden;
+}
+
+.ag-timeline_box{
+	position:relative;
+}
+
+
+/* =============================
+   ARROWS
+============================= */
+
+.ag-timeline-carousel-arrow_box{
+	margin-bottom:20px;
+	display:flex;
+	gap:10px;
+}
+
+.ag-timeline-carousel-arrow{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	height:52px;
+	width:52px;
+	border:1px solid var(--border-color);
+	background:transparent;
+	cursor:pointer;
+	stroke:var(--accent);
+	border-radius:50%;
+	transition:all .3s ease;
+}
+
+.ag-timeline-carousel-arrow:hover{
+	border-color:var(--accent);
+}
+
+.svg-arrow-left,
+.svg-arrow-right{
+	height:18px;
+	width:10px;
+}
+
+
+/* =============================
+   CAROUSEL CONTENT
+============================= */
+
+.ag-timeline-carousel_list{
+	padding-left:80px;
+}
+
+.ag-timeline_year{
+	line-height:1;
+	margin-bottom:40px;
+	font-weight:300;
+	font-size:clamp(2rem,6vw,3.5rem);
+	color:var(--accent);
+}
+
+.ag-timeline_text{
+	max-width:700px;
+}
+
+.ag-timeline_text p{
+	line-height:1.6;
+	margin-bottom:15px;
+	font-size:16px;
+	color:var(--text-color);
+}
+
+
+/* =============================
+   NAVIGATION TIMELINE
+============================= */
+
+.ag-timeline-carousel-nav_box{
+	margin-top:40px;
+	position:relative;
+}
+
+.ag-timeline-carousel-nav_list{
+	position:relative;
+}
+
+.ag-timeline-carousel-nav_list:after{
+	content:"";
+	height:1px;
+	background:var(--accent);
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:50px;
+}
+
+.ag-timeline-carousel-nav_item{
+	display:inline-block;
+	min-width:120px;
+	padding:120px 20px 0;
+	cursor:pointer;
+	text-align:center;
+	font-size:16px;
+	color:var(--text-color);
+	position:relative;
+	white-space:nowrap;
+}
+
+.ag-timeline-carousel-nav_item:before{
+	content:"";
+	height:6px;
+	width:6px;
+	margin:auto;
+	background:var(--text-muted);
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:102px;
+	border-radius:50%;
+	transition:.3s;
+}
+
+.ag-timeline-carousel-nav_item:after{
+	content:"";
+	height:40px;
+	width:1px;
+	margin:auto;
+	background:var(--accent);
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:52px;
+}
+
+.ag-timeline-carousel-nav_item.slick-current{
+	font-weight:700;
+	font-size:22px;
+	color:var(--accent);
+}
+
+.ag-timeline-carousel-nav_item.slick-current:before{
+	height:16px;
+	width:16px;
+	background:var(--accent);
+	bottom:110px;
+}
+
+.ag-timeline-carousel-nav_item.slick-current:after{
+	bottom:59px;
+}
+
+
+/* =============================
+   RESPONSIVE
+============================= */
+
+@media(max-width:992px){
+
+	.ag-timeline-carousel_list{
+		padding-left:40px;
+	}
+
+	.ag-timeline-carousel-arrow{
+		height:46px;
+		width:46px;
+	}
+
+	.ag-timeline-carousel-nav_item{
+		min-width:100px;
+		padding:100px 15px 0;
+		font-size:14px;
+	}
+
+}
+
+@media(max-width:768px){
+
+	.ag-format-container{
+		width:94%;
+	}
+
+	.ag-timeline-carousel_list{
+		padding-left:0;
+	}
+
+	.ag-timeline-carousel-arrow_box{
+		justify-content:center;
+	}
+
+	.ag-timeline-carousel-arrow{
+		height:40px;
+		width:40px;
+	}
+
+	.ag-timeline_text{
+		max-width:100%;
+	}
+
+	.ag-timeline_text p{
+		font-size:15px;
+	}
+
+	.ag-timeline-carousel-nav_item{
+		min-width:90px;
+		padding:90px 10px 0;
+		font-size:13px;
+	}
+
+}
+
+@media(max-width:480px){
+
+	.ag-timeline-carousel-arrow{
+		height:36px;
+		width:36px;
+	}
+
+	.ag-timeline-carousel-nav_item{
+		min-width:70px;
+		padding:70px 8px 0;
+		font-size:12px;
+	}
+
+}

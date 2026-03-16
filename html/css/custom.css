@@ -1,791 +1,604 @@
-/* 
-  THEME VARIABLES & DESIGN SYSTEM
-  -------------------------------------------------
-  Consistent color palette, typography, and spacing
-  across all sections for unified visual language
-*/
+
+/* =================================================
+   THEME VARIABLES & DESIGN SYSTEM
+================================================= */
+
 :root {
-  /* Colors - Primary Palette */
-  --primary-color: #f48fb1;
-  --secondary-color: #81d4fa;
-  --highlight-color: #f7c873;
-  --glow-color: rgba(244, 143, 177, 0.6);
 
-  /* Colors - Background Hierarchy */
-  --bg-dark: #0b0b0c;
-  --bg-light: #121212;
-  --bg-card: #151515;
-  --border-color: #333;
+  /* Primary Palette */
+  --primary-color:#f48fb1;
+  --secondary-color:#81d4fa;
+  --highlight-color:#f7c873;
+  --glow-color:rgba(244,143,177,.6);
 
-  /* Colors - Text Hierarchy */
-  --text-color: #e2e2e2;
-  --text-muted: #ccc;
-  --accent: #f7c873;
+  /* Backgrounds */
+  --bg-dark:#0b0b0c;
+  --bg-light:#121212;
+  --bg-card:#151515;
+  --border-color:#333;
+
+  /* Text */
+  --text-color:#e2e2e2;
+  --text-muted:#ccc;
+  --accent:#f7c873;
 
   /* Typography */
-  --font-main: 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', sans-serif;
-  --font-alt: 'Cormorant Garamond', serif;
-  --font-sans: 'Lato', sans-serif;
+  --font-main:'Inter','-apple-system','BlinkMacSystemFont','Segoe UI',sans-serif;
+  --font-alt:'Cormorant Garamond',serif;
+  --font-sans:'Lato',sans-serif;
 
-  /* Spacing System */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
+  /* Spacing */
+  --spacing-xs:.5rem;
+  --spacing-sm:1rem;
+  --spacing-md:1.5rem;
+  --spacing-lg:2rem;
+  --spacing-xl:3rem;
 
   /* Transitions */
-  --transition-base: 300ms ease-in-out;
-  --transition-hover: 200ms ease-out;
+  --transition-base:300ms ease-in-out;
+  --transition-hover:200ms ease-out;
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 0 20px var(--highlight-color);
+  --shadow-sm:0 2px 8px rgba(0,0,0,.3);
+  --shadow-md:0 5px 15px rgba(0,0,0,.5);
+  --shadow-lg:0 0 20px var(--highlight-color);
 
-  /* Elevation Glow */
-  --elevation-glow-accent: 0 0 20px var(--highlight-color);
+  /* Radius */
+  --radius-sm:.5rem;
+  --radius-md:1rem;
+  --radius-lg:1.5rem;
 
-  /* Border Radius */
-  --radius-sm: 0.5rem;
-  --radius-md: 1rem;
-  --radius-lg: 1.5rem;
 }
 
-/* 
-  GLOBAL STYLES
-  -------------------------------------------------
-*/
+
+/* =================================================
+   GLOBAL RESET
+================================================= */
+
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*::after{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+scroll-behavior:smooth;
 }
 
-body {
-  background: var(--bg-dark);
-  color: var(--text-color);
-  font-family: var(--font-main);
+body{
+background:var(--bg-dark);
+color:var(--text-color);
+font-family:var(--font-main);
+line-height:1.6;
 }
 
-/* Typography helpers */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--accent);
-  font-family: var(--font-alt);
+
+/* =================================================
+   TYPOGRAPHY
+================================================= */
+
+h1,h2,h3,h4,h5,h6{
+color:var(--accent);
+font-family:var(--font-alt);
 }
 
-p {
-  line-height: 1.6;
-  color: var(--text-color);
+p{
+color:var(--text-color);
+line-height:1.6;
 }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color var(--transition-base);
+a{
+color:var(--accent);
+text-decoration:none;
+transition:color var(--transition-base);
 }
 
-a:hover {
-  color: var(--highlight-color);
-  opacity: 0.85;
+a:hover{
+color:var(--highlight-color);
+opacity:.9;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+
+/* =================================================
+   IMAGES
+================================================= */
+
+img{
+max-width:100%;
+height:auto;
+display:block;
 }
 
-/* Buttons */
-.btn-outline {
-  border: 2px solid var(--accent);
-  color: var(--accent);
-  background: transparent;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--radius-sm);
-  transition: background var(--transition-base), color var(--transition-base);
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+
+/* =================================================
+   BUTTONS
+================================================= */
+
+.btn-outline{
+
+border:2px solid var(--accent);
+color:var(--accent);
+background:transparent;
+
+padding:var(--spacing-xs) var(--spacing-sm);
+
+border-radius:var(--radius-sm);
+
+transition:all var(--transition-base);
+
+display:inline-flex;
+align-items:center;
+justify-content:center;
+
+min-height:44px;
+font-weight:600;
+letter-spacing:.5px;
+
 }
 
-.btn-outline:hover {
-  background: var(--accent);
-  color: #111;
-  box-shadow: var(--shadow-sm);
+.btn-outline:hover{
+
+background:var(--accent);
+color:#111;
+box-shadow:var(--shadow-sm);
+
 }
 
-/* 
-  SHARED COMPONENTS
-  -------------------------------------------------
-*/
-.section {
-  padding: 5rem 1rem;
-  overflow: hidden;
+
+/* =================================================
+   SHARED COMPONENTS
+================================================= */
+
+.section{
+
+padding:5rem 1rem;
+overflow:hidden;
+
 }
 
-.section-head {
-  text-align: center;
-  margin-bottom: 3rem;
+.section-head{
+
+text-align:center;
+margin-bottom:3rem;
+
 }
 
-.section-head span {
-  display: block;
-  font-size: 1rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--accent);
+.section-head span{
+
+display:block;
+font-size:1rem;
+letter-spacing:2px;
+text-transform:uppercase;
+color:var(--accent);
+
 }
 
-.section-head h2 {
-  font-size: 2.5rem;
-  color: var(--accent);
-  margin-top: 0.5rem;
+.section-head h2{
+
+font-size:2.5rem;
+margin-top:.5rem;
+
 }
 
-/* Cards base style */
+
+/* =================================================
+   CARD SYSTEM
+================================================= */
+
 .card,
 .project-card,
-.inside-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+.inside-card{
+
+background:var(--bg-card);
+border:1px solid var(--border-color);
+
+border-radius:var(--radius-md);
+
+box-shadow:var(--shadow-md);
+
+transition:
+transform var(--transition-base),
+box-shadow var(--transition-base),
+border-color var(--transition-base);
+
 }
 
 .card:hover,
 .project-card:hover,
-.inside-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--elevation-glow-accent);
-  border-color: var(--highlight-color);
+.inside-card:hover{
+
+transform:translateY(-6px);
+box-shadow:var(--shadow-lg);
+border-color:var(--highlight-color);
+
 }
 
-/* 
-  NAVBAR
-  -------------------------------------------------
-*/
-.navbar-custom {
-  background: var(--bg-light);
+
+/* =================================================
+   NAVBAR
+================================================= */
+
+.navbar-custom{
+
+background:var(--bg-light);
+border-bottom:1px solid var(--border-color);
+
 }
 
-.navbar-brand {
-  font-family: var(--font-alt);
-  color: var(--accent);
-  font-size: 1.5rem;
+.navbar-brand{
+
+font-family:var(--font-alt);
+color:var(--accent);
+font-size:1.5rem;
+
 }
 
-.nav-link {
-  color: var(--text-color);
-  margin: 0 0.5rem;
-  transition: color 0.3s ease;
+.nav-link{
+
+color:var(--text-color);
+margin:0 .5rem;
+transition:color .25s ease;
+
 }
 
 .nav-link:hover,
-.nav-link.active {
-  color: var(--accent);
-}
+.nav-link.active{
 
-/* 
-  HOME
-  -------------------------------------------------
-*/
-.section-home {
-  position: relative;
-  height: 100vh;
-  background: var(--bg-dark);
-  color: var(--text-color);
-  background-image: url("../images/banner.jpg");
-  /* background-image: url("../images/linkedIn\ Banner.png"); */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+color:var(--accent);
+
 }
 
 
+/* =================================================
+   HOME SECTION
+================================================= */
 
-.section-home .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+.section-home{
+
+position:relative;
+height:100vh;
+
+background:var(--bg-dark);
+color:var(--text-color);
+
+background-image:url("../images/banner.jpg");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+
 }
 
-.overlay-wrap {
-  position: relative;
-  z-index: 2;
+.section-home .overlay{
+
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.6);
+
 }
 
-.overlay-wrap span {
-  font-size: 1rem;
-  letter-spacing: 2px;
-  color: var(--accent);
+.overlay-wrap{
+
+position:relative;
+z-index:2;
+
 }
 
-.overlay-wrap h1 {
-  font-size: 3rem;
-  margin: 1rem 0;
+.overlay-wrap span{
+
+font-size:1rem;
+letter-spacing:2px;
+color:var(--accent);
+
 }
 
-.overlay-wrap h4 {
-  font-size: 1.2rem;
-  font-weight: 300;
-  color: var(--text-muted);
+.overlay-wrap h1{
+
+font-size:3rem;
+margin:1rem 0;
+
 }
 
-/* 
-  ABOUT
-  -------------------------------------------------
-*/
-.section-about-wrap {
-  max-width: 1000px;
-  margin: 0 auto;
-}
+.overlay-wrap h4{
 
-.about-desc-content hr {
-  /* background: var(--accent); */
-  background: #f7c873;
-  height: 2px;
-  border: none;
-  /* margin: 1.5rem 0; */
-  margin-top: 1.5rem;
-  margin-right: 0px;
-  margin-bottom: 1.5rem;
-  margin-left: 0px;
-  
+font-size:1.2rem;
+font-weight:300;
+color:var(--text-muted);
+
 }
 
 
-.about-desc-social i {
-  font-size: 1.5rem;
-  color: var(--accent);
-  transition: color 0.3s ease;
+/* =================================================
+   ABOUT
+================================================= */
+
+.section-about-wrap{
+
+max-width:1000px;
+margin:auto;
+
 }
 
-.about-desc-social i:hover {
-  color: var(--accent);
+.about-desc-content hr{
+
+background:var(--accent);
+height:2px;
+border:none;
+margin:1.5rem 0;
+
 }
 
-.about-desc-social li a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    border: 1px solid #333;
-    /* border-radius: var(--radius-md); */
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-    color: #f7c873;
-    /* transition: all var(--transition-base) var(--timing-function); */
-    transition-behavior: normal;
-    transition-duration: 0s;
-    transition-timing-function: ease;
-    transition-delay: 0s;
-    transition-property: all;
+.about-desc-social li a{
+
+display:inline-flex;
+align-items:center;
+justify-content:center;
+
+width:45px;
+height:45px;
+
+border:1px solid var(--border-color);
+border-radius:var(--radius-sm);
+
+color:var(--accent);
+
+transition:all var(--transition-base);
+
 }
 
-.about-desc-social li a:hover {
-        border-top-color: rgb(247, 200, 115);
-    border-right-color: rgb(247, 200, 115);
-    border-bottom-color: rgb(247, 200, 115);
-    border-left-color: rgb(247, 200, 115);
-    box-shadow: #f7c873;
-    transform: translateY(-3px) scale(1.1);
-}
-.img-thumbnail {
-  border-radius: 1rem;
+.about-desc-social li a:hover{
+
+border-color:var(--accent);
+transform:translateY(-3px) scale(1.08);
+box-shadow:0 0 10px rgba(247,200,115,.4);
+
 }
 
-/* 
-  WHAT I DO (Services)
-  -------------------------------------------------
-*/
-.box-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+.about-desc-social i{
+
+font-size:1.4rem;
+
 }
 
-.shape-box {
-  position: relative;
-  width: 400px;
-  height: 400px;
-  overflow: hidden;
-  border-radius: 1rem;
-  box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+.img-thumbnail{
+
+border-radius:1rem;
+
 }
 
-.shape-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+
+/* =================================================
+   SERVICES / WHAT I DO
+================================================= */
+
+.box-wrapper{
+
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:2rem;
+
 }
 
-.shape-box:hover img {
-  transform: scale(1.05);
+.shape-box{
+
+position:relative;
+width:400px;
+height:400px;
+
+overflow:hidden;
+
+border-radius:1rem;
+box-shadow:0 6px 30px rgba(0,0,0,.12);
+
 }
 
-.shape-box:hover {
-  box-shadow: var(--elevation-glow-accent);
+.shape-box img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+transition:transform .4s ease;
+
 }
 
-.shape-box figcaption {
-  position: absolute;
-  bottom: 0;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(10px);
-  color: var(--text-color);
-  padding: 1.5rem;
-  transform: translateY(100%);
-  transition: transform 0.4s ease;
+.shape-box:hover img{
+
+transform:scale(1.05);
+
 }
 
-.shape-box:hover figcaption {
-  transform: translateY(0);
-  opacity: 1;
+.shape-box:hover{
+
+box-shadow:var(--shadow-lg);
+
 }
 
-.card-no {
-  font-size: 2rem;
-  color: var(--accent);
+.shape-box figcaption{
+
+position:absolute;
+bottom:0;
+
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(10px);
+
+color:var(--text-color);
+
+padding:1.5rem;
+
+transform:translateY(100%);
+transition:transform .4s ease;
+
 }
 
-.card-main-title {
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-top: 0.5rem;
+.shape-box:hover figcaption{
+
+transform:translateY(0);
+
 }
 
-.card-content {
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  color: var(--text-color);
+.card-no{
+
+font-size:2rem;
+color:var(--accent);
+
 }
 
-.read-more-btn {
-  display: inline-block;
-  background: var(--accent);
-  color: #111;
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  border-radius: 0.3rem;
-  text-decoration: none;
-  transition: background 0.3s ease;
+.card-main-title{
+
+text-transform:uppercase;
+font-weight:700;
+margin-top:.5rem;
+
 }
 
-.read-more-btn:hover {
-  background: #e5b45f;
-  color: #111;
+.card-content{
+
+margin-top:1rem;
+font-size:.95rem;
+
 }
 
-/* 
-  RESPONSIVE UTILITIES & MEDIA QUERIES
-  -------------------------------------------------
-*/
+.read-more-btn{
 
-/* Typography fluid scaling */
-h1 {
-  font-size: clamp(1.5rem, 5vw, 3.5rem);
+display:inline-block;
+
+background:var(--accent);
+color:#111;
+
+padding:.5rem 1rem;
+margin-top:1rem;
+
+border-radius:.3rem;
+
+transition:background .3s ease;
+
 }
 
-h2 {
-  font-size: clamp(1.25rem, 4vw, 2.5rem);
+.read-more-btn:hover{
+
+background:#e5b45f;
+color:#111;
+
 }
 
-h3 {
-  font-size: clamp(1.1rem, 3vw, 1.8rem);
+
+/* =================================================
+   RESPONSIVE
+================================================= */
+
+h1{font-size:clamp(1.5rem,5vw,3.5rem);}
+h2{font-size:clamp(1.25rem,4vw,2.5rem);}
+h3{font-size:clamp(1.1rem,3vw,1.8rem);}
+h4{font-size:clamp(1rem,2.5vw,1.5rem);}
+p{font-size:clamp(.95rem,1.5vw,1.1rem);}
+
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+.section{padding:2rem 1rem;}
+
+.section-home{height:80vh;}
+
+.overlay-wrap h1{font-size:1.75rem;}
+
+.overlay-wrap h4{font-size:.9rem;}
+
+.shape-box{
+width:100%;
+height:250px;
 }
 
-h4 {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+.box-wrapper{
+gap:1rem;
+flex-direction:column;
 }
 
-p {
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
 }
 
-/* Container and section scaling */
-.section {
-  padding: clamp(2rem, 5vw, 5rem) clamp(0.75rem, 3vw, 2rem);
+
+/* TABLETS */
+
+@media(min-width:481px) and (max-width:768px){
+
+.section{padding:3rem 1.5rem;}
+
+.shape-box{
+width:100%;
+height:300px;
 }
 
-.section-head {
-  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+.box-wrapper{
+flex-direction:column;
+gap:1.5rem;
 }
 
-.section-head h2 {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
-/* Button responsive sizing */
-.btn,
-.btn-outline,
-.read-more-btn {
-  min-height: 44px;
-  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1.5rem);
-  font-size: clamp(0.9rem, 1.2vw, 1rem);
+
+/* SMALL DESKTOP */
+
+@media(min-width:769px) and (max-width:1024px){
+
+.section{padding:4rem 2rem;}
+
+.shape-box{
+width:100%;
+height:350px;
 }
 
-/* 
-  MOBILE DEVICES (up to 480px)
-  -------------------------------------------------
-*/
-@media screen and (max-width: 480px) {
-  /* Global */
-  body {
-    font-size: 14px;
-  }
-
-  .section {
-    padding: 2rem 1rem;
-  }
-
-  /* Home */
-  .section-home {
-    height: 80vh;
-  }
-
-  .overlay-wrap h1 {
-    font-size: 1.75rem;
-    margin: 0.75rem 0;
-  }
-
-  .overlay-wrap h4 {
-    font-size: 0.9rem;
-  }
-
-  /* Navigation */
-  .navbar {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-  }
-
-  .navbar-brand {
-    font-size: 1.2rem;
-  }
-
-  /* Services/Cards */
-  .shape-box {
-    width: 100%;
-    height: 250px;
-    margin: 0;
-  }
-
-  .box-wrapper {
-    gap: 1rem;
-    flex-direction: column;
-  }
-
-  .card-no {
-    font-size: 1.5rem;
-  }
-
-  .card-main-title {
-    font-size: 0.95rem;
-  }
-
-  .card-content {
-    font-size: 0.85rem;
-  }
-
-  /* About */
-  .section-about-wrap {
-    max-width: 100%;
-  }
-
-  .about-desc-social li a {
-    width: 40px;
-    height: 40px;
-    font-size: 0.9rem;
-  }
-
-  .img-thumbnail {
-    border-radius: 0.5rem;
-  }
 }
 
-/* 
-  TABLETS (481px to 768px)
-  -------------------------------------------------
-*/
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  /* Global */
-  .section {
-    padding: 3rem 1.5rem;
-  }
 
-  /* Home */
-  .section-home {
-    height: 85vh;
-  }
+/* LARGE DESKTOP */
 
-  .overlay-wrap h1 {
-    font-size: 2.25rem;
-  }
+@media(min-width:1025px){
 
-  .overlay-wrap h4 {
-    font-size: 1rem;
-  }
+.section{padding:5rem 2rem;}
 
-  /* Services/Cards */
-  .shape-box {
-    width: 100%;
-    height: 300px;
-  }
-
-  .box-wrapper {
-    gap: 1.5rem;
-    flex-direction: column;
-  }
-
-  .section-head h2 {
-    font-size: 2rem;
-  }
-
-  /* About */
-  .section-about-wrap {
-    max-width: 100%;
-  }
-
-  .about-desc-social li a {
-    width: 42px;
-    height: 42px;
-  }
+.shape-box{
+width:400px;
+height:400px;
 }
 
-/* 
-  SMALL DESKTOPS (769px to 1024px)
-  -------------------------------------------------
-*/
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  /* Global */
-  .section {
-    padding: 4rem 2rem;
-  }
-
-  /* Home */
-  .section-home {
-    height: 90vh;
-  }
-
-  /* Services/Cards */
-  .shape-box {
-    width: 100%;
-    height: 350px;
-  }
-
-  .box-wrapper {
-    gap: 1.5rem;
-  }
-
-  .section-head h2 {
-    font-size: 2.2rem;
-  }
-
-  /* About */
-  .section-about-wrap {
-    max-width: 900px;
-  }
 }
 
-/* 
-  LARGE DESKTOPS (1025px and above)
-  -------------------------------------------------
-*/
-@media screen and (min-width: 1025px) {
-  /* Already optimized for desktop */
-  .section {
-    padding: 5rem 2rem;
-  }
 
-  .shape-box {
-    width: 400px;
-    height: 400px;
-  }
+/* =================================================
+   FINAL POLISH
+================================================= */
 
-  .box-wrapper {
-    gap: 2rem;
-  }
+.page-wrapper{
+
+width:100%;
+overflow-x:hidden;
+position:relative;
+
 }
 
-/* 
-  ADDITIONAL TOUCH-FRIENDLY OPTIMIZATIONS
-  -------------------------------------------------
-*/
+.container{
 
-/* Ensure all interactive elements have minimum 44px touch target */
-@media screen and (max-width: 768px) {
-  button,
-  a,
-  [role="button"],
-  .btn,
-  .btn-outline,
-  .read-more-btn,
-  .nav-link {
-    min-height: 44px;
-    min-width: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
+max-width:1400px !important;
 
-  /* Improve form inputs for mobile */
-  input,
-  textarea,
-  select {
-    font-size: 16px;
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-  }
+padding-left:clamp(1rem,3vw,2rem) !important;
+padding-right:clamp(1rem,3vw,2rem) !important;
 
-  /* Improve tap target spacing */
-  .nav-link {
-    padding: 0.75rem 1rem;
-    margin: 0.25rem;
-  }
-
-  /* Reduce animation complexity on mobile for better performance */
-  * {
-    transition-duration: 0.15s !important;
-  }
-
-  /* Prevent zoom on input focus on mobile */
-  input:focus,
-  textarea:focus,
-  select:focus {
-    font-size: 16px;
-  }
 }
 
-/* 
-  PRINT STYLES
-  -------------------------------------------------
-*/
-@media print {
-  body {
-    background: white;
-    color: black;
-  }
-
-  .navbar,
-  .btn,
-  .nav-link,
-  footer {
-    display: none;
-  }
-
-  .section {
-    page-break-inside: avoid;
-  }
-
-  a {
-    text-decoration: underline;
-  }
-}
-
-/* 
-  FINAL POLISH & SMOOTHING
-  -------------------------------------------------
-*/
-
-/* Ensure smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Optimize transition timing */
-* {
-  transition-duration: 200ms;
-  transition-timing-function: ease-in-out;
-}
-
-/* Remove outline delays for better UX */
-button:focus,
-a:focus,
-input:focus,
-textarea:focus,
-select:focus {
-  outline-offset: 2px;
-}
-
-/* Ensure consistent spacing around major sections */
-section {
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* Body and page wrapper consistency */
-body {
-  background-color: var(--bg-dark);
-  color: var(--text-color);
-  font-family: 'Open Sans', sans-serif;
-  line-height: 1.6;
-}
-
-.page-wrapper {
-  width: 100%;
-  overflow-x: hidden;
-  position: relative;
-}
-
-/* Container padding consistency */
-.container {
-  max-width: 1400px !important;
-  padding-left: clamp(1rem, 3vw, 2rem) !important;
-  padding-right: clamp(1rem, 3vw, 2rem) !important;
-}
-
-/* Ensure buttons are always accessible */
 button,
 a[role="button"],
-.btn {
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
+.btn{
+
+cursor:pointer;
+user-select:none;
+
 }
-
-/* Image optimization */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Video optimization */
-video {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Prevent overflow on mobile */
-@media screen and (max-width: 768px) {
-  body {
-    overflow-x: hidden;
-  }
-
-  section {
-    overflow-x: hidden;
-  }
-
-  .container {
-    overflow-x: hidden;
-  }
-}
-

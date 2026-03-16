@@ -1,0 +1,67 @@
+/* =================================================
+   RESPONSIVE (your original + non-conflicting additions)
+================================================= */
+
+h1 { font-size: clamp(1.5rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.25rem, 4vw, 2.5rem); }
+h3 { font-size: clamp(1.1rem, 3vw, 1.8rem); }
+h4 { font-size: clamp(1rem, 2.5vw, 1.5rem); }
+p  { font-size: clamp(.95rem, 1.5vw, 1.1rem); }
+
+/* MOBILE */
+@media (max-width: 480px) {
+	.section { padding: 2rem 1rem; }
+	.section-home { height: 80vh; }
+	.overlay-wrap h1 { font-size: 1.75rem; }
+	.overlay-wrap h4 { font-size: .9rem; }
+}
+
+/* TABLETS */
+@media (min-width: 481px) and (max-width: 768px) {
+	.section { padding: 3rem 1.5rem; }
+}
+
+/* SMALL DESKTOP */
+@media (min-width: 769px) and (max-width: 1024px) {
+	.section { padding: 4rem 2rem; }
+}
+
+/* LARGE DESKTOP */
+@media (min-width: 1025px) {
+	.section { padding: 5rem 2rem; }
+}
+
+/* Sidebar / Resume / Contact media (non-conflicting from second template) */
+@media (max-width: 991px) {
+	.section { padding: 80px 0; }
+	.container { max-width: 100%; }
+	.page-content-wrap {
+		margin-left: 0% !important;
+		width: 100% !important;
+		margin-top: -50px;
+		position: relative;
+		z-index: 1;
+	}
+	.page-wrapper { width: 100%; margin-left: 0%; overflow: hidden; }
+	.nav-wrapper .navbar-toggler { display: block; }
+	.navbar-nav { padding-top: 10px; margin-top: 10px; }
+	.list-items-container .list-item { width: 50%; }
+}
+
+@media (max-width: 768px) {
+	.contact-details--panel { margin-bottom: 30px; }
+	.contact-form { margin-top: 30px !important; }
+	.portfolio-item--img img { height: 350px; }
+	.list-items-container .list-item { width: 100%; }
+	.about-avatar img { height: 130px; width: 130px; }
+}
+
+/* Selection & scrollbar polish */
+::selection,
+::-moz-selection {
+	background: rgba(247, 200, 115, 0.3);
+}
+
+::-webkit-scrollbar {
+	display: none;
+}

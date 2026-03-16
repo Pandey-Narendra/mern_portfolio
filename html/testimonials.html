@@ -8,24 +8,20 @@
 <title>Modern Testimonials</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="css/theme.css">
 
 <style>
 
-/* SECTION */
+/* =============================
+TESTIMONIAL SECTION
+============================= */
 
 .testimonial-section{
-padding:120px 20px;
-background:#0f0f0f;
+background:var(--bg-dark);
 text-align:center;
 }
 
-.testimonial-title{
-font-size:38px;
-color:#f7c873;
-margin-bottom:70px;
-}
-
-/* SWIPER */
+/* slider container */
 
 .testimonial-slider{
 max-width:900px;
@@ -33,140 +29,200 @@ margin:auto;
 position:relative;
 }
 
-/* CARD */
+/* card */
 
 .testimonial-card{
-background:rgba(255,255,255,0.05);
+
+background:rgba(255,255,255,0.04);
+
 border-radius:16px;
+
 padding:60px 50px;
+
+border:1px solid var(--border-color);
+
 backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,0.08);
+
 position:relative;
-transition:0.4s;
+
+transition:.35s;
+
 }
 
-/* Gradient border */
+/* gradient border */
 
 .testimonial-card::before{
+
 content:"";
+
 position:absolute;
+
 inset:0;
+
 padding:2px;
+
 border-radius:16px;
-background:linear-gradient(120deg,#f7c873,transparent);
+
+background:linear-gradient(120deg,var(--accent),transparent);
+
 -webkit-mask:
 linear-gradient(#000 0 0) content-box,
 linear-gradient(#000 0 0);
+
 mask-composite:exclude;
+
 opacity:.4;
+
 }
 
-/* Hover */
+/* hover */
 
 .testimonial-card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 40px rgba(247,200,115,.3);
+
+transform:translateY(-8px);
+
+box-shadow:0 0 30px rgba(247,200,115,.25);
+
 }
 
-/* Quote */
+/* quote */
 
 .quote-icon{
+
 font-size:60px;
-color:#f7c873;
+
+color:var(--accent);
+
 opacity:.15;
+
 position:absolute;
+
 top:25px;
 left:30px;
+
 animation:float 6s infinite ease-in-out;
+
 }
 
 @keyframes float{
+
 0%,100%{transform:translateY(0)}
 50%{transform:translateY(-10px)}
+
 }
 
-/* TEXT */
+/* testimonial text */
 
 .testimonial-text{
+
 font-size:18px;
+
 line-height:1.7;
-color:#ddd;
+
+color:var(--text-color);
+
 margin-bottom:35px;
+
 }
 
-/* AUTHOR */
+/* author */
 
 .author{
+
 display:flex;
+
 align-items:center;
+
 justify-content:center;
+
 gap:15px;
+
 }
 
 .author img{
+
 width:60px;
 height:60px;
+
 border-radius:50%;
-border:3px solid #f7c873;
+
+border:3px solid var(--accent);
+
 object-fit:cover;
+
 }
 
+/* author text */
+
 .author-name{
+
 font-weight:600;
+
 font-size:18px;
-color:#f7c873;
+
+color:var(--accent);
+
 }
 
 .author-role{
+
 font-size:14px;
-color:#aaa;
+
+color:var(--text-muted);
+
 }
 
-/* NAVIGATION BUTTONS */
+/* swiper navigation */
 
 .swiper-button-next,
 .swiper-button-prev{
 
-width:50px;
-height:50px;
+width:48px;
+height:48px;
+
 border-radius:50%;
 
-background:rgba(255,255,255,0.05);
+background:rgba(255,255,255,.05);
 
-border:1px solid rgba(255,255,255,0.1);
+border:1px solid var(--border-color);
 
-color:#f7c873;
+color:var(--accent);
 
-transition:0.3s;
+transition:.3s;
+
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover{
 
-background:#f7c873;
+background:var(--accent);
+
 color:#111;
-box-shadow:0 0 20px rgba(247,200,115,.5);
+
+box-shadow:0 0 15px rgba(247,200,115,.4);
 
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after{
 font-size:18px;
-font-weight:bold;
 }
 
-/* Pagination */
+/* pagination */
 
 .swiper-pagination-bullet{
-background:#f7c873;
-opacity:.4;
+
+background:var(--accent);
+
+opacity:.35;
+
 }
 
 .swiper-pagination-bullet-active{
 opacity:1;
 }
 
-/* Responsive */
+/* responsive */
 
 @media(max-width:768px){
 
@@ -186,9 +242,14 @@ font-size:16px;
 
 <body>
 
-<section class="testimonial-section">
+<section class="section testimonial-section">
 
-<h2 class="testimonial-title">Client Testimonials</h2>
+<div class="container">
+
+<div class="section-head">
+<span>What Clients Say</span>
+<h2>Client Testimonials</h2>
+</div>
 
 <div class="swiper testimonial-slider">
 
@@ -208,7 +269,12 @@ Narendra delivered a highly scalable backend architecture that improved our API 
 
 <div class="author">
 
-<img src="https://i.pravatar.cc/150?img=12">
+<img 
+src="https://i.pravatar.cc/150?img=12"
+loading="lazy"
+decoding="async"
+alt="John Smith"
+>
 
 <div>
 <div class="author-name">John Smith</div>
@@ -221,7 +287,6 @@ Narendra delivered a highly scalable backend architecture that improved our API 
 
 </div>
 
-<!-- TESTIMONIAL -->
 
 <div class="swiper-slide">
 
@@ -235,7 +300,12 @@ Extremely professional developer with deep knowledge of system design and backen
 
 <div class="author">
 
-<img src="https://i.pravatar.cc/150?img=32">
+<img 
+src="https://i.pravatar.cc/150?img=32"
+loading="lazy"
+decoding="async"
+alt="Sarah Lee"
+>
 
 <div>
 <div class="author-name">Sarah Lee</div>
@@ -248,7 +318,6 @@ Extremely professional developer with deep knowledge of system design and backen
 
 </div>
 
-<!-- TESTIMONIAL -->
 
 <div class="swiper-slide">
 
@@ -262,7 +331,12 @@ Our infrastructure stability improved significantly after working together.
 
 <div class="author">
 
-<img src="https://i.pravatar.cc/150?img=45">
+<img 
+src="https://i.pravatar.cc/150?img=45"
+loading="lazy"
+decoding="async"
+alt="Michael Chen"
+>
 
 <div>
 <div class="author-name">Michael Chen</div>
@@ -277,12 +351,13 @@ Our infrastructure stability improved significantly after working together.
 
 </div>
 
-<!-- NAVIGATION -->
 
 <div class="swiper-button-prev"></div>
 <div class="swiper-button-next"></div>
 
 <div class="swiper-pagination"></div>
+
+</div>
 
 </div>
 
@@ -295,11 +370,13 @@ Our infrastructure stability improved significantly after working together.
 new Swiper('.testimonial-slider',{
 
 loop:true,
-spaceBetween:30,
+
+spaceBetween:40,
+
 centeredSlides:true,
 
 autoplay:{
-delay:4500,
+delay:5000,
 disableOnInteraction:false
 },
 

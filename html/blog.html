@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Expertise</title>
+
+<link rel="stylesheet" href="css/theme.css">
+
+<style>
+/* ========================================
+BLOG SECTION
+======================================== */
+
+.section-blogs{
+background:var(--bg-dark);
+}
+
+/* blog list */
+
+.nav-blog{
+
+display:flex;
+flex-direction:column;
+
+gap:40px;
+
+margin-top:80px;
+
+position:relative;
+
+}
+
+/* blog links */
+
+.nav-blog a{
+
+font-size:clamp(2.5rem,6vw,6rem);
+
+font-weight:300;
+
+text-decoration:none;
+
+position:relative;
+
+display:inline-block;
+
+letter-spacing:-1px;
+
+transition:color .35s ease;
+
+}
+
+/* hover text */
+
+.nav-blog a:hover{
+
+color:#fff;
+
+text-shadow:0 0 10px rgba(247,200,115,.2);
+
+}
+
+/* underline */
+
+.nav-blog span{
+
+display:block;
+
+padding:12px 0;
+
+border-top:1px solid transparent;
+border-bottom:1px solid transparent;
+
+transition:.3s;
+
+}
+
+.nav-blog a:hover span{
+border-color:var(--accent);
+}
+
+/* preview image */
+
+.nav-blog img{
+
+position:absolute;
+
+pointer-events:none;
+
+opacity:0;
+
+transform:translate(-50%,-50%) scale(.85);
+
+transition:
+opacity .25s ease,
+transform .35s cubic-bezier(.25,.8,.25,1);
+
+width:min(38vw,420px);
+
+border-radius:10px;
+
+box-shadow:0 25px 60px rgba(0,0,0,.7);
+
+z-index:2;
+
+will-change:transform,left,top;
+
+}
+
+/* show image */
+
+.nav-blog a:hover img{
+
+opacity:1;
+
+transform:translate(-50%,-50%) scale(1);
+
+}
+
+/* ========================================
+TABLET
+======================================== */
+
+@media(max-width:1024px){
+
+.nav-blog a{
+font-size:clamp(2rem,5vw,3.5rem);
+}
+
+}
+
+/* ========================================
+MOBILE
+======================================== */
+
+@media(max-width:768px){
+
+.section-blogs{
+padding-top:80px;
+padding-bottom:80px;
+}
+
+/* change layout */
+
+.nav-blog{
+
+gap:25px;
+
+}
+
+/* make links look like blog cards */
+
+.nav-blog a{
+
+font-size:1.4rem;
+
+padding:18px 20px;
+
+border:1px solid var(--border-color);
+
+border-radius:12px;
+
+background:var(--bg-card);
+
+transition:.3s;
+
+}
+
+.nav-blog a:hover{
+
+background:#1a1a1a;
+
+}
+
+/* remove hover preview image */
+
+.nav-blog img{
+display:none;
+}
+
+}
+
+/* ========================================
+SMALL MOBILE
+======================================== */
+
+@media(max-width:480px){
+
+.nav-blog a{
+
+font-size:1.2rem;
+
+padding:16px 18px;
+
+}
+
+.section-head h2{
+font-size:1.8rem;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- BLOGS -->
+			<section class="section section-blogs" id="blogs">
+
+<div class="container">
+
+<div class="section-head">
+
+<span>What I Write</span>
+<h2>Engineering Blogs</h2>
+
+</div>
+
+<div class="nav-blog" id="blogNav">
+
+<a href="#">
+<span>System Design</span>
+<img src="https://images.unsplash.com/photo-1660167941111-f7ccce818728?auto=format&fit=crop&w=800&q=60">
+</a>
+
+<a href="#">
+<span>Backend Architecture</span>
+<img src="https://images.unsplash.com/photo-1660070918769-f34c724cfe43?auto=format&fit=crop&w=800&q=60">
+</a>
+
+<a href="#">
+<span>Laravel Scaling</span>
+<img src="https://images.unsplash.com/photo-1660169376132-409f66fedcee?auto=format&fit=crop&w=800&q=60">
+</a>
+
+<a href="#">
+<span>API Design</span>
+<img src="https://images.unsplash.com/photo-1660201367471-9fc0cb34734f?auto=format&fit=crop&w=800&q=60">
+</a>
+
+<a href="#">
+<span>Database Optimization</span>
+<img src="https://images.unsplash.com/photo-1660158847730-e93a2a96ca59?auto=format&fit=crop&w=800&q=60">
+</a>
+
+<a href="#">
+<span>Node.js Performance</span>
+<img src="https://images.unsplash.com/photo-1660074519968-d718487e9a7b?auto=format&fit=crop&w=800&q=60">
+</a>
+
+</div>
+
+</div>
+
+</section>
+		<!-- BLOGS -->
+
+<script>
+
+/* ================= BLOG IMAGE FOLLOW ================= */
+
+const blogNav = document.getElementById("blogNav")
+const links = blogNav.querySelectorAll("a")
+
+let mouseX = 0
+let mouseY = 0
+
+let currentX = 0
+let currentY = 0
+
+let activeImg = null
+
+links.forEach(link=>{
+
+const img = link.querySelector("img")
+
+link.addEventListener("mouseenter",()=>{
+activeImg = img
+})
+
+link.addEventListener("mouseleave",()=>{
+activeImg = null
+})
+
+link.addEventListener("mousemove",e=>{
+
+const rect = link.getBoundingClientRect()
+
+mouseX = e.clientX - rect.left
+mouseY = e.clientY - rect.top
+
+})
+
+})
+
+function animate(){
+
+currentX += (mouseX - currentX) * 0.12
+currentY += (mouseY - currentY) * 0.12
+
+if(activeImg){
+
+activeImg.style.left = currentX + "px"
+activeImg.style.top = currentY + "px"
+
+}
+
+requestAnimationFrame(animate)
+
+}
+
+animate()
+</script>
+
+</body>
+</html>
